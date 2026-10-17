@@ -1,0 +1,3068 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>E-Portfolio PPL_SMAN 2 Mataram_Hafadzatun Adzmi</title>
+
+    <meta
+      name="description"
+      content="E-Portfolio Praktik Pengalaman Lapangan di SMAN 2 Mataram"
+    />
+
+    <style>
+      /* =========================================================
+   GLOBAL
+========================================================= */
+
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap");
+
+      :root {
+        --primary: #5b4bdb;
+        --primary-dark: #4335a8;
+        --secondary: #8b7cf6;
+        --accent: #f4c95d;
+
+        --bg: #f7f8fc;
+        --card: #ffffff;
+        --text: #202235;
+        --muted: #6f7185;
+        --border: #e8e9f2;
+
+        --success: #37a878;
+        --danger: #e56b6f;
+
+        --sidebar: 270px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+      }
+
+      button,
+      a {
+        font-family: inherit;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* =========================================================
+   SIDEBAR
+========================================================= */
+
+      .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+
+        width: var(--sidebar);
+        height: 100vh;
+
+        background: linear-gradient(
+          180deg,
+          #f63c9c 0%,
+          #fb62e7 50%,
+          #e048b5 100%
+        );
+
+        color: rgb(0, 0, 0);
+        padding: 28px 18px;
+
+        z-index: 1000;
+
+        overflow-y: auto;
+      }
+
+      .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+
+        width: var(--sidebar);
+        height: 100vh;
+
+        background: linear-gradient(
+          180deg,
+          #f63c9c  0%,
+          #fb62e7  50%,
+          #e048b5  100%
+        );
+
+        color: rgb(162, 255, 255);
+        padding: 28px 18px;
+        box-sizing: border-box;
+
+        z-index: 1000;
+        overflow-y: auto;
+      }
+
+      /* Area tiga logo */
+      .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        width: 100%;
+        margin-bottom: 30px;
+      }
+
+      /* Kotak masing-masing logo */
+      .logo-icon {
+        width: 58px;
+        height: 58px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        flex: 0 1 58px;
+        min-width: 0;
+
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.16);
+
+        overflow: hidden;
+      }
+
+      /* Gambar di dalam kotak logo */
+      .logo-icon img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: contain;
+        display: block;
+
+        padding: 5px;
+        box-sizing: border-box;
+      }
+
+      /* Efek saat kursor diarahkan ke logo */
+      .logo-icon img:hover {
+        transform: scale(1.05);
+        transition: transform 0.2s ease;
+      }
+
+      .logo {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .logo-icon {
+        width: 58px;
+        height: 58px;
+
+        margin: auto auto 12px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 18px;
+
+        background: rgba(255, 255, 255, 0.16);
+
+        font-size: 27px;
+      }
+
+      .logo h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 20px;
+      }
+
+      .logo p {
+        font-size: 11px;
+        opacity: 0.75;
+        margin-top: 4px;
+      }
+
+      .nav-title {
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        opacity: 0.6;
+
+        margin: 24px 12px 8px;
+      }
+
+      .nav-menu {
+        list-style: none;
+      }
+
+      .nav-menu li {
+        margin: 5px 0;
+      }
+
+      .nav-menu a {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        padding: 11px 13px;
+
+        border-radius: 11px;
+
+        font-size: 13px;
+
+        transition: 0.25s ease;
+      }
+
+      .nav-menu a:hover,
+      .nav-menu a.active {
+        background: rgba(255, 255, 255, 0.16);
+        transform: translateX(3px);
+      }
+
+      .nav-icon {
+        width: 25px;
+        text-align: center;
+      }
+
+      /* =========================================================
+   MAIN
+========================================================= */
+
+      .main {
+        margin-left: var(--sidebar);
+        min-height: 100vh;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+
+        height: 68px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: 0 40px;
+
+        background: rgba(247, 248, 252, 0.92);
+
+        backdrop-filter: blur(12px);
+
+        border-bottom: 1px solid var(--border);
+
+        z-index: 900;
+      }
+
+      .topbar-left {
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      .topbar-right {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .status {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+
+        background: white;
+
+        border: 1px solid var(--border);
+
+        padding: 7px 12px;
+
+        border-radius: 50px;
+
+        font-size: 11px;
+      }
+
+      .status-dot {
+        width: 8px;
+        height: 8px;
+
+        border-radius: 50%;
+
+        background: var(--success);
+      }
+
+      /* =========================================================
+   PAGE
+========================================================= */
+
+      .page {
+        display: none;
+        padding: 45px 50px 70px;
+
+        max-width: 1450px;
+        margin: auto;
+
+        animation: fade 0.35s ease;
+      }
+
+      .page.active {
+        display: block;
+      }
+
+      @keyframes fade {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* =========================================================
+   HERO
+========================================================= */
+
+      .hero {
+        min-height: 410px;
+
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+
+        gap: 40px;
+
+        align-items: center;
+
+        padding: 48px;
+
+        border-radius: 28px;
+
+        background:
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(255, 255, 255, 0.2),
+            transparent 35%
+          ),
+          linear-gradient(135deg, #f95aa7, #f56fcb);
+
+        color: rgb(162, 255, 255);
+
+        overflow: hidden;
+      }
+
+      .hero-label {
+        display: inline-flex;
+
+        padding: 7px 13px;
+
+        border-radius: 50px;
+
+        background: rgba(255, 255, 255, 0.15);
+
+        font-size: 11px;
+
+        margin-bottom: 17px;
+      }
+
+      .hero h1 {
+        font-family: "Playfair Display", serif;
+
+        font-size: clamp(32px, 4vw, 58px);
+
+        line-height: 1.12;
+
+        margin-bottom: 18px;
+      }
+
+      .hero p {
+        max-width: 670px;
+
+        opacity: 0.88;
+
+        font-size: 14px;
+      }
+
+      .hero-buttons {
+        display: flex;
+
+        flex-wrap: wrap;
+
+        gap: 10px;
+
+        margin-top: 25px;
+      }
+
+      .btn {
+        border: none;
+
+        cursor: pointer;
+
+        padding: 11px 17px;
+
+        border-radius: 10px;
+
+        font-size: 12px;
+
+        font-weight: 600;
+
+        transition: 0.25s ease;
+      }
+
+      .btn-primary {
+        background: rgb(255, 199, 199);
+        color: var(--primary);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn-outline {
+        background: rgba(255, 255, 255, 0.12);
+        color: rgb(255, 255, 255);
+
+        border: 1px solid rgba(255, 255, 255, 0.25);
+      }
+
+      .btn-outline:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      /* =========================================================
+   HERO VISUAL
+========================================================= */
+
+      .hero-visual {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .portfolio-orbit {
+        width: 250px;
+        height: 250px;
+
+        border-radius: 50%;
+
+        border: 1px solid rgba(255, 255, 255, 0.25);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        position: relative;
+      }
+
+      .orbit-inner {
+        width: 175px;
+        height: 175px;
+
+        border-radius: 50%;
+
+        background: rgba(255, 255, 255, 0.12);
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+        justify-content: center;
+
+        text-align: center;
+      }
+
+      .orbit-inner span {
+        font-size: 40px;
+        width: 100px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        flex-shrink: 0;
+      }
+
+      .orbit-inner span img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+
+      .orbit-inner strong {
+        margin-top: 5px;
+        font-size: 14px;
+      }
+
+      .floating-card {
+        position: absolute;
+
+        padding: 9px 12px;
+
+        border-radius: 10px;
+
+        background: rgba(255, 255, 255, 0.92);
+
+        color: var(--text);
+
+        font-size: 10px;
+
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .float-1 {
+        top: 15px;
+        right: -20px;
+      }
+
+      .float-2 {
+        bottom: 20px;
+        left: -25px;
+      }
+
+      .float-3 {
+        top: 110px;
+        left: -40px;
+      }
+
+      /* =========================================================
+   SECTION HEADER
+========================================================= */
+
+      .section-header {
+        margin-bottom: 30px;
+      }
+
+      .section-label {
+        color: var(--primary);
+
+        font-size: 11px;
+
+        font-weight: 700;
+
+        letter-spacing: 1.5px;
+
+        text-transform: uppercase;
+
+        margin-bottom: 7px;
+      }
+
+      .section-header h1 {
+        font-family: "Playfair Display", serif;
+
+        font-size: 34px;
+
+        margin-bottom: 8px;
+      }
+
+      .section-header p {
+        color: var(--muted);
+
+        font-size: 13px;
+
+        max-width: 780px;
+      }
+
+      /* =========================================================
+   CARDS
+========================================================= */
+
+      .grid {
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 18px;
+      }
+
+      .grid-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .card {
+        background: var(--card);
+
+        border: 1px solid var(--border);
+
+        border-radius: 18px;
+
+        padding: 24px;
+
+        box-shadow: 0 5px 20px rgba(30, 31, 60, 0.04);
+      }
+
+      .card:hover {
+        box-shadow: 0 10px 30px rgba(30, 31, 60, 0.07);
+      }
+
+      .card-icon {
+        width: 48px;
+        height: 48px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 13px;
+
+        background: #f6f5ff;
+
+        font-size: 21px;
+
+        margin-bottom: 16px;
+      }
+
+      .card h3 {
+        font-size: 15px;
+
+        margin-bottom: 8px;
+      }
+
+      .card p {
+        color: var(--muted);
+
+        font-size: 12px;
+      }
+
+      /* =========================================================
+   STATISTICS
+========================================================= */
+
+      .stats {
+        display: grid;
+
+        grid-template-columns: repeat(4, 1fr);
+
+        gap: 15px;
+
+        margin: 25px 0;
+      }
+
+      .stat {
+        background: white;
+
+        border: 1px solid var(--border);
+
+        border-radius: 16px;
+
+        padding: 20px;
+      }
+
+      .stat-number {
+        font-size: 27px;
+
+        font-weight: 800;
+
+        color: var(--primary);
+      }
+
+      .stat-label {
+        color: var(--muted);
+
+        font-size: 11px;
+      }
+
+      /* =========================================================
+   PROFILE
+========================================================= */
+
+      .profile {
+        display: grid;
+
+        grid-template-columns: 250px 1fr;
+
+        gap: 20px;
+
+        margin-top: 25px;
+      }
+
+      .profile-photo {
+        min-height: 280px;
+
+        border-radius: 20px;
+
+        background: linear-gradient(145deg, #ddd8ff, #f3f1ff);
+
+        display: flex;
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+
+        text-align: center;
+
+        color: var(--primary);
+      }
+
+      .profile-photo .avatar {
+        width: 95px;
+        height: 95px;
+
+        border-radius: 50%;
+
+        background: white;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 38px;
+
+        margin-bottom: 12px;
+      }
+
+      .profile-info {
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 12px;
+      }
+
+      .info-item {
+        background: white;
+
+        border: 1px solid var(--border);
+
+        border-radius: 14px;
+
+        padding: 17px;
+      }
+
+      .info-item span {
+        display: block;
+
+        font-size: 10px;
+
+        color: var(--muted);
+
+        text-transform: uppercase;
+
+        letter-spacing: 0.8px;
+
+        margin-bottom: 4px;
+      }
+
+      .info-item strong {
+        font-size: 13px;
+      }
+
+      /* =========================================================
+   ANALYSIS BOX
+========================================================= */
+
+      .analysis-box {
+        background: rgb(201, 255, 239);
+
+        border: 1px solid var(--border);
+
+        border-radius: 18px;
+
+        padding: 28px;
+
+        margin-bottom: 20px;
+      }
+
+      .analysis-box h3 {
+        font-size: 16px;
+
+        margin-bottom: 12px;
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 9px;
+      }
+
+      .analysis-box p,
+      .analysis-box li {
+        color: #56586b;
+
+        font-size: 13px;
+      }
+
+      .analysis-box ul,
+      .analysis-box ol {
+        padding-left: 20px;
+      }
+
+      .analysis-box li {
+        margin: 6px 0;
+      }
+
+      /* =========================================================
+   TIMELINE
+========================================================= */
+
+      .timeline {
+        position: relative;
+
+        padding-left: 28px;
+      }
+
+      .timeline::before {
+        content: "";
+
+        position: absolute;
+
+        left: 5px;
+        top: 5px;
+        bottom: 5px;
+
+        width: 2px;
+
+        background: #dcd9ff;
+      }
+
+      .timeline-item {
+        position: relative;
+
+        margin-bottom: 22px;
+      }
+
+      .timeline-item::before {
+        content: "";
+
+        position: absolute;
+
+        left: -28px;
+        top: 5px;
+
+        width: 11px;
+        height: 11px;
+
+        background: var(--primary);
+
+        border-radius: 50%;
+
+        border: 3px solid var(--bg);
+      }
+
+      .timeline-item h4 {
+        font-size: 14px;
+        margin-bottom: 4px;
+      }
+
+      .timeline-item p {
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      /* =========================================================
+   FILE PLACEHOLDER
+========================================================= */
+
+      .file-card {
+        min-height: 150px;
+
+        border: 2px dashed #d9d7ef;
+
+        border-radius: 15px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        justify-content: center;
+
+        text-align: center;
+
+        padding: 20px;
+
+        background: #fbfaff;
+      }
+
+      .file-card-icon {
+        font-size: 32px;
+
+        margin-bottom: 8px;
+      }
+
+      .file-card h4 {
+        font-size: 13px;
+
+        margin-bottom: 4px;
+      }
+
+      .file-card p {
+        font-size: 11px;
+
+        color: var(--muted);
+
+        max-width: 400px;
+      }
+
+      .file-name {
+        display: inline-block;
+
+        margin-top: 10px;
+
+        padding: 5px 9px;
+
+        background: #eeecff;
+
+        color: var(--primary);
+
+        border-radius: 7px;
+
+        font-size: 10px;
+      }
+
+      /* =========================================================
+   MEDIA / VIDEO
+========================================================= */
+
+      .media-placeholder {
+        width: 100%;
+
+        aspect-ratio: 16/9;
+
+        background: linear-gradient(135deg, #25243a, #5143c7);
+
+        border-radius: 15px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        align-items: center;
+
+        color: white;
+
+        text-align: center;
+
+        margin-bottom: 16px;
+      }
+
+      .play-button {
+        width: 60px;
+        height: 60px;
+
+        border-radius: 50%;
+
+        background: rgba(255, 255, 255, 0.2);
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        font-size: 24px;
+
+        margin-bottom: 10px;
+      }
+
+      /* =========================================================
+   TAG
+========================================================= */
+
+      .tag {
+        display: inline-block;
+
+        padding: 5px 9px;
+
+        border-radius: 7px;
+
+        background: #f0efff;
+
+        color: var(--primary);
+
+        font-size: 10px;
+
+        font-weight: 600;
+
+        margin: 3px;
+      }
+
+      /* =========================================================
+   TABLE
+========================================================= */
+
+      .table-wrapper {
+        overflow-x: auto;
+      }
+
+      table {
+        width: 100%;
+
+        border-collapse: collapse;
+
+        font-size: 12px;
+      }
+
+      th,
+      td {
+        padding: 12px;
+
+        text-align: left;
+
+        border-bottom: 1px solid var(--border);
+      }
+
+      th {
+        background: #f5f4ff;
+
+        color: var(--primary);
+
+        font-size: 11px;
+      }
+
+      /* =========================================================
+   REFLECTION
+========================================================= */
+
+      .quote {
+        border-left: 4px solid var(--primary);
+
+        background: #f5f4ff;
+
+        padding: 18px 20px;
+
+        border-radius: 0 12px 12px 0;
+
+        color: #55576b;
+
+        font-size: 13px;
+
+        margin: 18px 0;
+      }
+
+      /* =========================================================
+   FOOTER
+========================================================= */
+
+      footer {
+        margin-left: var(--sidebar);
+
+        background: #24243a;
+
+        color: white;
+
+        padding: 30px 50px;
+
+        text-align: center;
+      }
+
+      footer p {
+        font-size: 11px;
+
+        opacity: 0.65;
+      }
+
+      /* =========================================================
+   MOBILE MENU
+========================================================= */
+
+      .mobile-menu {
+        display: none;
+
+        border: none;
+
+        background: transparent;
+
+        font-size: 24px;
+
+        cursor: pointer;
+      }
+
+      /* =========================================================
+   RESPONSIVE
+========================================================= */
+
+      @media (max-width: 1050px) {
+        .sidebar {
+          transform: translateX(-100%);
+
+          transition: 0.3s ease;
+        }
+
+        .sidebar.open {
+          transform: translateX(0);
+        }
+
+        .main,
+        footer {
+          margin-left: 0;
+        }
+
+        .mobile-menu {
+          display: block;
+        }
+
+        .topbar {
+          padding: 0 20px;
+        }
+
+        .page {
+          padding: 30px 22px 50px;
+        }
+
+        .hero {
+          grid-template-columns: 1fr;
+
+          padding: 35px;
+        }
+
+        .hero-visual {
+          display: none;
+        }
+
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .stats {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 650px) {
+        .grid,
+        .grid-2,
+        .profile,
+        .profile-info {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          padding: 28px 22px;
+
+          min-height: auto;
+        }
+
+        .hero h1 {
+          font-size: 34px;
+        }
+
+        .section-header h1 {
+          font-size: 28px;
+        }
+
+        .stats {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .topbar-left {
+          display: none;
+        }
+
+        .status {
+          display: none;
+        }
+      }
+        p {
+        text-align: justify;
+    }
+    .media-placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.media-placeholder iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: none;
+}
+
+.card video {
+    display: block;
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 12px;
+    margin: 15px 0;
+    background: #000;
+}
+
+
+.btn-webapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, #7C3AED, #5B21B6);
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 5px 15px rgba(91, 33, 182, 0.25);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-webapp:hover {
+  background: linear-gradient(135deg, #FACC15, #F59E0B);
+  color: #3B0764;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(91, 33, 182, 0.3);
+}
+
+.btn-icon {
+  font-size: 22px;
+}
+
+.btn-arrow {
+  font-size: 20px;
+  margin-left: 4px;
+}
+
+.btn-webapp:focus-visible {
+  outline: 3px solid #FACC15;
+  outline-offset: 4px;
+}
+
+
+.card-image {
+    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin: 12px auto;
+    box-sizing: border-box;
+}
+
+.paragraf-analisis {
+  text-align: justify;
+  text-indent: 1.25cm;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+    </style>
+  </head>
+
+  <body>
+    <!-- =========================================================
+     SIDEBAR
+========================================================= -->
+
+    <aside class="sidebar" id="sidebar">
+      <div class="logo">
+        <div class="logo-icon">
+          <img src="assets/Logo/ummat.png" alt="Logo UMMat" />
+        </div>
+
+        <div class="logo-icon">
+          <img src="assets/Logo/ppgcalonguru.jpg" alt="Logo PPG Calon Guru" />
+        </div>
+
+          <div class="logo-icon">
+    <img src="assets/Logo/smanda.png" alt="Logo SMAN 2 Mataram">
+  </div>
+</div>
+
+        <h2>E-Portfolio PPL</h2>
+
+        <p>SMAN 2 Mataram</p>
+      </div>
+
+      <div class="nav-title">Portfolio</div>
+
+      <ul class="nav-menu">
+        <li>
+          <a href="#" class="nav-link active" data-page="home">
+            <span class="nav-icon">⌂</span>
+            Beranda
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="nav-link" data-page="rancangan">
+            <span class="nav-icon">📋</span>
+            Rancangan Pembelajaran
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="nav-link" data-page="materi">
+            <span class="nav-icon">📚</span>
+            Materi Pembelajaran
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="nav-link" data-page="media">
+            <span class="nav-icon">💻</span>
+            Media Pembelajaran
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="nav-link" data-page="video">
+            <span class="nav-icon">🎥</span>
+            Video Praktik Mengajar
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="nav-link" data-page="nonmengajar">
+            <span class="nav-icon">🏫</span>
+            Kegiatan Nonmengajar
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="nav-link" data-page="penilaian">
+            <span class="nav-icon">📝</span>
+            Instrumen Penilaian
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="nav-link" data-page="refleksi">
+            <span class="nav-icon">💭</span>
+            Refleksi
+          </a>
+        </li>
+      </ul>
+
+      <div class="nav-title">Informasi</div>
+
+      <ul class="nav-menu">
+        <li>
+          <a href="#" onclick="window.print()">
+            <span class="nav-icon">🖨️</span>
+            Cetak Portfolio
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- =========================================================
+     MAIN
+========================================================= -->
+
+    <main class="main">
+      <!-- TOPBAR -->
+
+      <header class="topbar">
+        <div class="topbar-left">
+          PPG Calon Guru • Praktik Pengalaman Lapangan
+        </div>
+
+        <div class="topbar-right">
+          <button class="mobile-menu" onclick="toggleSidebar()">☰</button>
+
+          <div class="status">
+            <span class="status-dot"></span>
+            E-Portfolio Aktif
+          </div>
+        </div>
+      </header>
+
+      <!-- =====================================================
+         HOME
+    ===================================================== -->
+
+      <section class="page active" id="home">
+        <div class="hero">
+          <div>
+            <span class="hero-label"> E-PORTFOLIO 1 • PPL </span>
+
+            <h1>Praktik Pengalaman Lapangan</h1>
+
+            <p>
+              Dokumentasi, analisis, dan refleksi pelaksanaan praktik mengajar
+              di SMAN 2 Mataram sebagai bagian dari pengembangan kompetensi
+              profesional calon guru Pendidikan Pancasila.
+            </p>
+
+            <div class="hero-buttons">
+              <button class="btn btn-primary" onclick="showPage('rancangan')">
+                Mulai Portfolio →
+              </button>
+
+              <button class="btn btn-outline" onclick="window.print()">
+                Cetak
+              </button>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="portfolio-orbit">
+              <div class="floating-card float-1">📚 Pembelajaran</div>
+
+              <div class="floating-card float-2">🎥 Dokumentasi</div>
+
+              <div class="floating-card float-3">📝 Refleksi</div>
+
+              <div class="orbit-inner">
+                <span
+                  ><img src="assets/Logo/smanda.png" alt="Logo SMAN 2 Mataram"
+                /></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROFILE -->
+
+        <div class="section-header">
+          <div class="section-label"></div>
+
+          <h1>Profil Identitas</h1>
+
+          <p>
+            Informasi identitas dan konteks pelaksanaan Praktik Pengalaman
+            Lapangan.
+          </p>
+        </div>
+
+        <div class="profile">
+          <div class="profile-photo">
+            <!-- =================================================
+                     EDIT DI SINI:
+                     Ganti emoji dengan foto Anda.
+                     Contoh:
+                     <img src="assets/foto-profil.jpg">
+                ================================================== -->
+
+            <img
+              src="assets/foto-profil.jpeg"
+              alt="Foto Hafadzatun Adzmi"
+              class="profile-avatar"
+            />
+
+            <style>
+              .profile-avatar {
+                width: 120px;
+                height: 120px;
+                object-fit: cover;
+                border-radius: 50%;
+                display: block;
+                margin: 0 auto 15px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+                border: 3px solid #ffffff;
+              }
+            </style>
+
+            <strong> Hafadzatun Adzmi, S.Pd. </strong>
+
+            <small> Calon Guru Pendidikan Pancasila </small>
+          </div>
+
+          <div class="profile-info">
+            <div class="info-item">
+              <span>Nama</span>
+              <strong> Hafadzatun Adzmi, S.Pd. </strong>
+            </div>
+
+            <div class="info-item">
+              <span>Program Studi</span>
+              <strong> Pendidikan Pancasila </strong>
+            </div>
+
+            <div class="info-item">
+              <span>Satuan Pendidikan</span>
+              <strong> SMAN 2 Mataram </strong>
+            </div>
+
+            <div class="info-item">
+              <span>Kelas Praktik</span>
+              <strong> XI Sosial</strong>
+            </div>
+
+            <div class="info-item">
+              <span>Kegiatan</span>
+              <strong> Praktik Mengajar Mandiri </strong>
+            </div>
+
+            <div class="info-item">
+              <span>Fokus Pembelajaran</span>
+              <strong> Pendidikan Pancasila </strong>
+            </div>
+          </div>
+        </div>
+
+        <br /><br />
+
+        <!-- COMPONENTS -->
+
+        <div class="section-header">
+          <div class="section-label">Isi Portfolio</div>
+
+          <h1>Enam Komponen E-Portfolio</h1>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <div class="card-icon">📋</div>
+            <h3>Rancangan Pembelajaran</h3>
+            <p>
+              Analisis rancangan/perencanaan pembelajaran yang digunakan dalam
+              praktik mengajar.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">📚</div>
+            <h3>Materi Pembelajaran</h3>
+            <p>
+              Analisis materi yang telah disusun, diterapkan, dan disesuaikan
+              dengan kebutuhan peserta didik.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">💻</div>
+            <h3>Media Pembelajaran</h3>
+            <p>
+              Analisis penggunaan PPT interaktif, Video turorial, LKPD, Canva,
+              Google sites, Team picker whell, Web App Pohon Literasi.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🎥</div>
+            <h3>Video Praktik Mengajar</h3>
+            <p>Dokumentasi serta analisis pelaksanaan praktik mengajar.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🏫</div>
+            <h3>Kegiatan Nonmengajar</h3>
+            <p>
+              Dokumentasi dan analisis kegiatan di lingkungan sekolah di luar
+              kegiatan pembelajaran.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">📝</div>
+            <h3>Instrumen Penilaian</h3>
+            <p>
+              Instrumen asesmen yang dirancang serta analisis penggunaannya.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+         RANCANGAN PEMBELAJARAN
+    ===================================================== -->
+
+      <section class="page" id="rancangan">
+        <div class="section-header">
+          <div class="section-label">E-Portfolio 01</div>
+
+          <h1>Analisis Rancangan Pembelajaran</h1>
+
+          <p>
+            Analisis produk rancangan/perencanaan pembelajaran yang digunakan
+            untuk melaksanakan praktik mengajar.
+          </p>
+        </div>
+
+        <div class="analysis-box">
+          <h3>🎯 Gambaran Rancangan</h3>
+          <div class="paragraf-analisis">
+            Rancangan pembelajaran disusun berdasarkan capaian pembelajaran
+            Pendidikan Pancasila dengan memperhatikan karakteristik peserta
+            didik, tujuan pembelajaran, aktivitas pembelajaran, asesmen, serta
+            penggunaan media pembelajaran yang relevan.
+          </div>
+        </div>
+        <div class="grid grid-2">
+        <div class="analysis-box">
+          <h3>📄 File Rancangan Pembelajaran</h3>
+
+          <div class="file-card">
+            <div class="file-card-icon">📎</div>
+
+            <h4>Rancangan Pembelajaran Siklus 1</h4>
+           <button><a
+              href="assets/modul/siklus 1.pdf"
+              class="file-name"
+              target="_blank"
+              ><h4>Unduh rancangan pembelajaran siklus 1</h4></a
+            ></button>
+            <br />
+            <h4>Rancangan Pembelajaran Siklus 2</h4>
+            <button><a
+              href="assets/modul/siklus 2.pdf"
+              class="file-name"
+              target="_blank"
+              ><h4>Unduh rancangan pembelajaran siklus 2</h4></a
+            ></button>
+            <br />
+            <h5>Rancangan Pembelajaran Siklus 3</h5>
+            <button>
+              <a
+              href="assets/modul/siklus 3.pdf"
+              class="file-name"
+              target="_blank"
+              ><h4>Unduh rancangan pembelajaran siklus 3</h4></a
+            >
+            </button>
+            <br />
+            <h5>Rancangan Pembelajaran Siklus 4</h5>
+          <button>
+             <a
+              href="assets/modul/siklus 4.pdf"
+              class="file-name"
+              target="_blank"
+              ><h4>Unduh rancangan pembelajaran siklus 4</h4></a
+            >
+          </button>
+          </div>
+          </div>
+           <div class="analysis-box">
+          <h3>💡 Kelebihan dan Perbaikan</h3>
+            <div>
+              <h4>Kelebihan</h4>
+
+              <ul>
+                <li>Pembelajaran memiliki alur yang terstruktur.</li>
+
+                <li>Menggunakan aktivitas kolaboratif.</li>
+
+                <li>Memanfaatkan media pembelajaran digital.</li>
+
+                <li>
+                  Memberikan ruang bagi peserta didik untuk berdiskusi dan
+                  menghasilkan produk.
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4>Perbaikan</h4>
+
+              <ul>
+                <li>Menyesuaikan alokasi waktu dengan kondisi nyata.</li>
+
+                <li>Memperjelas instruksi kegiatan proyek.</li>
+
+                <li>Meningkatkan strategi manajemen kelas.</li>
+
+                <li>
+                  Menyiapkan alternatif kegiatan apabila waktu pembelajaran
+                  terbatas.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <div class="analysis-box">
+            <h3>🔎 Analisis Kesesuaian</h3>
+          <strong> Analisis Kesesuaian Rancangan Pembelajaran</strong>
+          <div class="paragraf-analisis">
+            Analisis ini disusun berdasarkan empat modul pembelajaran Pendidikan Pancasila kelas XI/Fase F dengan memperhatikan kesesuaian rancangan pembelajaran terhadap kebutuhan peserta didik, capaian pembelajaran, karakteristik materi, serta kondisi nyata di kelas.
+          </div>
+          <div class="paragraf-analisis">
+            1. Kesesuaian dengan kebutuhan peserta didik
+          </div>
+          <div class="paragraf-analisis">
+            Rancangan pembelajaran menunjukkan upaya untuk mengakomodasi perbedaan kesiapan belajar, kemampuan memahami materi, minat, dan keterampilan peserta didik. Pada modul pertama, diferensiasi diterapkan melalui Diferensiasi Ukuran Pencapaian (DUP), sehingga peserta didik memperoleh tingkat dukungan dan tantangan yang berbeda sesuai kebutuhan belajarnya. Integrasi Pembelajaran Sosial dan Emosional (PSE) juga mendukung pengembangan kemampuan mengelola emosi, menghargai pendapat, dan bekerja sama.
+            Pada modul kedua dan ketiga, pembelajaran berbasis proyek memberikan kesempatan kepada peserta didik untuk berkolaborasi, mengembangkan kreativitas, dan menyampaikan pemahaman melalui media digital maupun poster manual. Sementara itu, modul keempat menerapkan pendekatan Teaching at the Right Level (TaRL), yaitu memetakan kesiapan belajar melalui asesmen diagnostik sebelum memberikan aktivitas yang sesuai dengan tingkat pemahaman peserta didik.
+            Dengan demikian, rancangan pembelajaran telah menunjukkan kesesuaian dengan kebutuhan belajar yang beragam. Namun, penerapannya perlu didukung oleh hasil asesmen awal, pengamatan selama pembelajaran, serta pemantauan kontribusi setiap peserta didik. Karena data aktual mengenai kebutuhan seluruh peserta didik belum disertakan, kesesuaian tersebut dapat dinilai dari rancangan yang tersedia, tetapi efektivitas penerapannya masih perlu dibuktikan melalui pelaksanaan pembelajaran.
+          </div>
+          <div class="paragraf-analisis">
+            2. Kesesuaian dengan capaian pembelajaran
+          </div>
+          <div class="paragraf-analisis">
+            Tujuan dan aktivitas dalam keempat rancangan telah diarahkan pada capaian pembelajaran Pendidikan Pancasila yang tercantum dalam masing-masing modul.
+            Modul pertama menekankan kemampuan mendeskripsikan rumusan dan keterkaitan sila-sila Pancasila melalui analisis kasus, penyusunan peta keterkaitan, dan argumentasi. Modul kedua mengarahkan peserta didik untuk memahami makna sila-sila Pancasila dan menghubungkannya dengan permasalahan kehidupan sehari-hari melalui proyek digital. Modul ketiga memperkuat penerapan nilai Pancasila dalam tindakan nyata melalui pengembangan poster yang berisi pesan edukatif. Adapun modul keempat mengarahkan peserta didik untuk memahami periodesasi pemberlakuan UUD di Indonesia melalui pengurutan informasi sejarah, analisis hubungan sebab-akibat, dan penyusunan argumentasi.
+            Kesesuaian tersebut terlihat dari hubungan antara materi, aktivitas belajar, produk yang dihasilkan, dan instrumen asesmen. Meskipun demikian, ketercapaian tujuan perlu dipastikan melalui indikator yang terukur dan rubrik penilaian yang konsisten. Guru juga perlu memastikan bahwa produk yang menarik secara visual tetap menunjukkan penguasaan konsep dan kemampuan berpikir yang menjadi sasaran pembelajaran.
+          </div>
+          <div class="paragraf-analisis">
+            3. Kesesuaian dengan karakteristik materi
+          </div>
+          <div class="paragraf-analisis">
+            Karakteristik materi dalam keempat modul membutuhkan strategi pembelajaran yang tidak hanya berorientasi pada penguasaan informasi, tetapi juga pada pemahaman, analisis, dan penerapan konsep.
+            Materi keterkaitan sila-sila Pancasila sesuai dipelajari melalui PBL karena peserta didik dapat mengkaji permasalahan nyata dan mempertimbangkan hubungan antarnilai sebelum menentukan solusi. Materi makna sila-sila Pancasila sesuai dikembangkan melalui PjBL karena pemahaman nilai dapat diwujudkan dalam produk digital yang mengomunikasikan hasil analisis. Materi Pancasila dalam tindakan juga sesuai dengan proyek poster manual karena peserta didik dapat menerjemahkan nilai abstrak menjadi pesan dan ajakan yang konkret.
+            Sementara itu, materi periodesasi pemberlakuan UUD di Indonesia memiliki karakteristik kronologis sekaligus analitis. Oleh karena itu, penggunaan pohon literasi, peta konsep, dan tugas bertingkat dalam pendekatan TaRL relevan untuk membantu peserta didik mengenali urutan periode, memahami peristiwa penting, serta menganalisis hubungan sebab-akibat dalam perkembangan konstitusi Indonesia.
+            Dengan demikian, strategi pembelajaran yang digunakan telah mempertimbangkan karakteristik setiap materi. Hal yang perlu diperhatikan adalah memastikan bahwa kegiatan visual dan proyek tidak mengurangi kedalaman pembahasan konsep, serta menyediakan sumber informasi yang tepat agar analisis peserta didik tetap akurat.
+            </div>
+          <div class="paragraf-analisis">
+            4. Kesesuaian dengan kondisi nyata di kelas
+          </div>
+          <div class="paragraf-analisis">
+            Rancangan pembelajaran telah mempertimbangkan sejumlah kebutuhan praktis di kelas, seperti pengelolaan kelompok, pembagian peran, penggunaan media, ketersediaan waktu, dan pelaksanaan asesmen. Penggunaan media manual pada modul pertama dan ketiga memberikan alternatif ketika perangkat digital terbatas, sedangkan penggunaan Google Sites, Canva, PPT, dan website asesmen pada modul kedua dan keempat mendukung pemanfaatan teknologi dalam pembelajaran.
+              Namun, pelaksanaan kegiatan tetap bergantung pada kondisi aktual kelas, termasuk ketersediaan perangkat dan akses internet, kemampuan awal peserta didik, jumlah anggota kelompok, serta alokasi waktu. Aktivitas yang melibatkan analisis kasus, diskusi, pembuatan produk, dan presentasi memerlukan pengaturan waktu yang realistis agar semua peserta didik memperoleh kesempatan berpartisipasi.
+              Khusus pada modul keempat, rentang skor TaRL perlu diperjelas agar seluruh kemungkinan skor asesmen terakomodasi. Selain itu, hasil asesmen awal sebaiknya tidak menjadi satu-satunya dasar penentuan aktivitas karena pemahaman peserta didik dapat berkembang selama proses pembelajaran.
+              Perlu ditegaskan bahwa dokumen yang tersedia belum memuat data observasi kelas secara lengkap, seperti hasil wawancara peserta didik, kondisi fasilitas aktual, atau catatan pelaksanaan setiap kegiatan. Oleh sebab itu, kesesuaian dengan kondisi nyata kelas masih perlu diverifikasi melalui observasi dan refleksi pelaksanaan.
+          </div>
+          <div class="paragraf-analisis">
+            5. Kesimpulan analisis
+          </div>
+          <div class="paragraf-analisis">
+            Keempat rancangan pembelajaran menunjukkan kesesuaian yang cukup baik dengan kebutuhan belajar yang beragam, capaian pembelajaran yang dituju, karakteristik materi, dan sejumlah pertimbangan praktis dalam pelaksanaan pembelajaran. Penggunaan PBL, PjBL, DUP, PSE, dan TaRL memberikan variasi strategi untuk mendukung pemahaman konsep, kemampuan berpikir kritis, kreativitas, kolaborasi, serta penerapan nilai-nilai Pancasila.
+            Meskipun demikian, kesesuaian rancangan tidak secara otomatis membuktikan keberhasilan pelaksanaannya. Penyempurnaan masih diperlukan pada kejelasan indikator ketercapaian tujuan, konsistensi instrumen asesmen, pengelolaan waktu, pemerataan partisipasi, dan penyesuaian kegiatan berdasarkan hasil asesmen serta kondisi aktual kelas. Dengan melakukan penyesuaian tersebut, rancangan pembelajaran diharapkan menjadi lebih relevan, fleksibel, dan efektif dalam mendukung pencapaian kompetensi peserta didik.
+          </div>
+        </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+         MATERI
+    ===================================================== -->
+
+      <section class="page" id="materi">
+        <div class="section-header">
+          <div class="section-label">E-Portfolio 02</div>
+
+          <h1>Analisis Materi Pembelajaran</h1>
+
+          <p>
+            Analisis materi pembelajaran yang telah disusun dan diterapkan dalam
+            praktik mengajar.
+          </p>
+        </div>
+
+        <div class="analysis-box">
+          <h3>📚 Materi yang Diterapkan</h3>
+          <strong>
+            Bab 1 - Menjiwai Pancasila
+          </strong>
+          <br/>
+          <h6> Sub Bab A. Keterkaitan Sila-Sila Dalam Pancasila</h6>
+          <p>Pancasila merupakan satu kesatuan yang utuh. Kelima sila saling berkaitan dan tidak dapat dipisahkan dalam penerapan nilai-nilai kehidupan bermasyarakat, berbangsa dan bernegara.</p>
+         <p>Materi ini dipilih untuk membantu peserta didik memahami hubungan antarsila serta menerapkan nilai-nilai Pancasila secara terpadu dalam menghadapi permasalahan di lingkungan sekolah dan masyarakat.</p>
+         <br/> 
+         <h6> Sub Bab B. Makna Sila-Sila Dalam Pancasila</h6>
+          <p>Setiap sila Pancasila mengandung nilai ketuhanan, kemanusiaan, persatuan, kerakyatan dan keadilan yang menjadi pedoman perilaku warga negara.</p>
+            <p>Materi ini dipilih untuk memperkuat pemahaman peserta didik terhadap makna setiap sila serta menumbuhkan sikap toleransi, gotong royong, tanggung jawab, musyawarah, dan keadilan dalam kehidupan sehari-hari.</p>
+            <br/>
+            <h6> Sub Bab C. Pancasila dalam Tindakan</h6>
+            <p>Pancasila tidak hanya dipahami sebagai konsep dan dasar negara, tetapi juga diwujudkan melalui perilaku nyata dalam kehidupan sehari-hari.
+              <p>Materi ini dipilih agar peserta didik mampu menghubungkan pengetahuan dengan praktik nyata, seperti menghargai perbedaan, membantu sesama, menyelesaikan konflik secara damai, dan melaksanakan tanggung jawab bersama.</p>
+              <br/>
+              <h6> Sub Bab D. Pancasila sebagai Ideologi Bangsa</h6>
+              <p>Berdasarkan penulisan yang diberikan, materi ini memiliki judul yang sama dengan Subbab C sehingga perlu dikonfirmasi kembali sesuai buku yang digunakan.
+                <p>Pemilihan materi perlu disesuaikan dengan isi subbab dalam buku agar kegiatan pembelajaran tidak mengulang materi yang sama dan tetap mencapai tujuan pembelajaran secara berkesinambungan.</p>
+                <br/>
+                <strong>BAB 2-Demokrasi Berdasarkan UUD NRI Tahun 1945 </strong>
+                <br/> 
+                <h6> Sub Bab A. Periodesasi Pemberlakuan UUD di Indonesia </h6>
+                 <p>Sejarah ketatanegaraan Indonesia mengalami beberapa periode pemberlakuan konstitusi, yaitu UUD 1945 periode 1945–1949, Konstitusi RIS 1949–1950, UUD Sementara 1950–1959, UUD 1945 periode 1959–1999, serta UUD NRI Tahun 1945 setelah perubahan pada 1999–2002. Perubahan tersebut berkaitan dengan dinamika politik, sistem pemerintahan, dan perkembangan demokrasi Indonesia.</p>
+                 <p>Materi ini dipilih untuk membantu peserta didik memahami perkembangan konstitusi Indonesia, menganalisis faktor penyebab perubahan konstitusi, serta mengidentifikasi hubungan antara konstitusi, sistem pemerintahan, dan praktik demokrasi. Materi ini juga mendorong peserta didik menghargai konstitusi sebagai landasan penyelenggaraan negara dan memahami pentingnya demokrasi yang sesuai dengan UUD NRI Tahun 1945.</p>
+              </p>
+            </p>
+          </p>
+          <br />
+
+        <div class="grid grid-2">
+          <div class="analysis-box">
+            <h3>🎯 Tujuan Penyusunan Materi</h3>
+
+            <p>
+              <!-- EDIT DI SINI -->
+
+              Materi disusun agar peserta didik dapat memahami konsep secara
+              bertahap, menghubungkan materi dengan kehidupan nyata, serta
+              menerapkan nilai-nilai Pendidikan Pancasila dalam konteks
+              kehidupan sehari-hari.
+            </p>
+          </div>
+
+          <div class="analysis-box">
+            <h3>🧠 Karakteristik Materi</h3>
+
+            <ul>
+              <li>Konseptual</li>
+              <li>Kontekstual</li>
+              <li>Mendorong penalaran kritis</li>
+              <li>Dapat dikaitkan dengan permasalahan nyata</li>
+              <li>Mendukung diskusi dan proyek</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="analysis-box">
+          <h3>📄 File Materi</h3>
+
+          <div class="file-card">
+            <div class="file-card-icon">📖</div>
+
+            <h4>Materi Pembelajaran</h4>
+
+            <p>
+              Unduh file materi disini.
+            </p>
+
+            <button class="file-name"><h4>
+              <a href="assets/materi/materi_bab I.pptx">Materi Bab I dan Bab II</a></h4></button>
+          </div>
+        </div>
+
+        <div class="analysis-box">
+          <div class="isi-analisis">
+            <h3>🔎 Analisis Penerapan Materi</h3>
+            <div class="paragraf-analisis">
+              <strong>ANALISIS MATERI AJAR
+MATA PELAJARAN PENDIDIKAN PANCASILA KELAS XI</strong>
+                <ul>
+                  <li>Satuan Pendidikan: SMAN 2 Mataram </li>
+                  <li>Kelas: XI Sosial </li>
+                  <li>Kurikulum: Kurikulum Merdeka</li>
+                  <li>Kegiatan: Praktik Pengalaman Lapangan (PPL) PPG Calon Guru </li>
+                  <li>Materi: Bab 1 Menjiwai Pancasila dan Bab 2 Demokrasi Berdasarkan UUD NRI Tahun 1945</li>
+                </ul>  
+                <strong> A. Pendahuluan</strong>
+                <div class="paragraf-analisis">
+                  Analisis materi ajar merupakan bagian penting dalam perencanaan pembelajaran karena membantu guru memahami ruang lingkup, karakteristik, tingkat kompleksitas dan relevansi materi dengan kebutuhan peserta didik. Melalui analisis ini, guru dapat menentukan strategi pembelajaran, media serta bentuk asesmen yang sesuai dengan tujuan pembelajaran.
+                  Dalam kegiatan Praktik Pengalaman Lapangan (PPL) di SMAN 2 Mataram, analisis materi ajar Pendidikan Pancasila kelas XI Sosial difokuskan pada Bab 1 Menjiwai Pancasila dan Bab 2 Demokrasi Berdasarkan UUD Negara Republik Indonesia Tahun 1945. Analisis dilakukan terhadap submateri yang telah diajarkan dengan mempertimbangkan keterkaitan konsep, penerapan dalam kehidupan sehari-hari, potensi kesulitan belajar serta implikasinya terhadap pelaksanaan pembelajaran.
+                </div>
+                <strong>B. Analisis Materi Bab 1: Menjiwai Pancasila</strong>
+                <br/><br/>
+                <div class="paragraf-analisis"> 1. Ruang Lingkup dan Karakteristik Materi</div>
+                <div class="paragraf-analisis">
+                  Bab 1 Menjiwai Pancasila membahas pemahaman dan penghayatan nilai-nilai Pancasila sebagai dasar negara, pandangan hidup bangsa, dan ideologi negara. Materi ini tidak hanya menekankan penguasaan konsep, tetapi juga kemampuan peserta didik dalam menghubungkan nilai-nilai Pancasila dengan sikap dan tindakan nyata. Ruang lingkup materi meliputi keterkaitan antarsila, makna setiap sila, penerapan Pancasila dalam tindakan serta Pancasila sebagai ideologi negara.
+                  Bab 1 Menjiwai Pancasila membahas pemahaman dan penghayatan nilai-nilai Pancasila sebagai dasar negara, pandangan hidup bangsa, dan ideologi negara. Materi ini tidak hanya menekankan penguasaan konsep, tetapi juga kemampuan peserta didik dalam menghubungkan nilai-nilai Pancasila dengan sikap dan tindakan nyata. Ruang lingkup materi meliputi keterkaitan antarsila, makna setiap sila, penerapan Pancasila dalam tindakan serta Pancasila sebagai ideologi negara.
+                </div>
+                <div class="paragraf-analisis">2. Analisis Submateri</div>
+                <div class="paragraf-analisis">a. Keterkaitan Sila-Sila dalam Pancasila</div>
+                 <div class="paragraf-analisis">
+                  Submateri ini membahas hubungan yang utuh dan saling berkaitan antara kelima sila Pancasila. Setiap sila memiliki makna dan penekanan tersendiri, tetapi tidak dapat dipahami secara terpisah dari sila lainnya. Peserta didik perlu memahami bahwa penerapan nilai ketuhanan, kemanusiaan, persatuan, kerakyatan dan keadilan harus berjalan secara selaras dalam kehidupan bermasyarakat, berbangsa dan bernegara.
+                  Analisis terhadap submateri ini diarahkan pada kemampuan peserta didik menjelaskan hubungan antarsila serta mengidentifikasi keterkaitannya dalam suatu peristiwa. Potensi kesulitan yang muncul adalah kecenderungan memahami setiap sila secara terpisah tanpa melihat kesatuan nilai Pancasila. Oleh karena itu, diskusi kelompok dan analisis kasus dapat digunakan untuk membantu peserta didik menemukan hubungan antarnilai dalam situasi konkret.
+                </div>
+                <div class="paragraf-analisis">b. Makna Sila-Sila dalam Pancasila</div>
+                 <div class="paragraf-analisis">
+                  Submateri ini membahas makna nilai yang terkandung dalam setiap sila Pancasila dan relevansinya dalam kehidupan sehari-hari. Peserta didik perlu memahami bahwa setiap sila mengandung prinsip moral dan sosial yang menjadi pedoman dalam bersikap serta mengambil keputusan.
+                  Tantangan pembelajaran pada submateri ini adalah memastikan peserta didik tidak sekadar menghafal bunyi sila, tetapi mampu menjelaskan maknanya dengan bahasa sendiri dan memberikan contoh penerapannya. Pembelajaran dapat dilakukan melalui tanya jawab, pemberian ilustrasi dan pembahasan kasus yang dekat dengan pengalaman peserta didik di lingkungan keluarga, sekolah, maupun masyarakat.
+                </div>
+                <div class="paragraf-analisis">c. Pancasila dalam Tindakan</div>
+                 <div class="paragraf-analisis">
+                  Submateri ini menekankan aktualisasi nilai-nilai Pancasila melalui perilaku nyata. Penerapannya dapat berupa menghargai perbedaan, menolak perundungan, membantu sesama, menjaga persatuan, bermusyawarah dalam menyelesaikan masalah serta bersikap adil terhadap orang lain.
+                  Analisis materi ini menekankan kemampuan peserta didik dalam menilai kesesuaian suatu tindakan dengan nilai Pancasila dan merumuskan alternatif tindakan yang lebih tepat. Potensi kesulitannya adalah adanya perbedaan antara pemahaman konseptual dan penerapan nilai dalam situasi yang melibatkan konflik kepentingan atau perbedaan pendapat. Oleh sebab itu, studi kasus, diskusi kelompok dan refleksi dapat membantu peserta didik mengembangkan penalaran moral serta tanggung jawab dalam bertindak.
+                </div>
+                <div class="paragraf-analisis">d. Pancasila sebagai Ideologi Negara</div>
+                 <div class="paragraf-analisis">
+                  Submateri ini membahas Pancasila sebagai seperangkat nilai dan cita-cita dasar yang menjadi pedoman dalam kehidupan berbangsa dan bernegara. Peserta didik perlu memahami kedudukan Pancasila sebagai ideologi negara, nilai-nilai yang menjadi landasannya serta relevansinya dalam menghadapi perkembangan masyarakat dan perubahan zaman.
+                  Tantangan yang mungkin dihadapi peserta didik adalah memahami konsep ideologi yang bersifat abstrak dan membedakannya dari Pancasila sebagai dasar negara serta pandangan hidup bangsa. Untuk mengatasi hal tersebut, guru dapat menggunakan contoh permasalahan sosial, perkembangan teknologi, keberagaman, dan tantangan kebangsaan sebagai bahan analisis. Melalui kegiatan tersebut, peserta didik diarahkan untuk menjelaskan relevansi nilai Pancasila dalam kehidupan kontemporer.
+                </div>
+                <div class="paragraf-analisis">
+                  3. Kompetensi yang Dikembangkan
+                </div>
+                <div class="paragraf-analisis">
+                  Pembelajaran Bab 1 diarahkan untuk mengembangkan pengetahuan peserta didik mengenai keterkaitan dan makna sila-sila Pancasila, penerapan nilai Pancasila dalam tindakan serta kedudukan Pancasila sebagai ideologi negara. Selain itu, materi ini mendukung pengembangan kemampuan berpikir kritis, komunikasi, kolaborasi, tanggung jawab, toleransi dan kepedulian sosial.
+                </div>
+                <div class="paragraf-analisis">
+                  4. Implikasi terhadap Pembelajaran dan Asesmen
+                </div>
+                <div class="paragraf-analisis">
+                  Berdasarkan karakteristik materi, pembelajaran Bab 1 perlu menghubungkan konsep dengan pengalaman nyata peserta didik. Diskusi kelompok dapat digunakan untuk membahas keterkaitan antarsila, sedangkan studi kasus dapat membantu peserta didik menilai tindakan berdasarkan nilai Pancasila. Tanya jawab dan presentasi memberikan kesempatan kepada peserta didik untuk mengemukakan pemahaman serta mempertanggungjawabkan pendapatnya.
+                  Asesmen dapat dilakukan melalui pertanyaan pemahaman konsep, analisis kasus, hasil diskusi kelompok, presentasi, dan refleksi. Penilaian perlu memperhatikan ketepatan konsep, kemampuan memberikan alasan, kualitas argumentasi, serta partisipasi dalam kegiatan pembelajaran.
+                </div>
+                <strong>C. Analisis Materi Bab 2: Demokrasi Berdasarkan UUD NRI Tahun 1945</strong>
+                <br/>
+                <div class="paragraf-analisis">
+                  1. Ruang Lingkup dan Karakteristik Materi
+                </div>
+                <div class="paragraf-analisis">
+                  Bab 2 Demokrasi Berdasarkan UUD Negara Republik Indonesia Tahun 1945 pada pelaksanaan pembelajaran yang dianalisis difokuskan pada submateri periodesasi pemberlakuan UUD di Indonesia. Submateri ini membahas perkembangan konstitusi Indonesia dalam perjalanan sejarah ketatanegaraan, mulai dari penggunaan UUD 1945 pada awal kemerdekaan, pemberlakuan Konstitusi RIS, penggunaan UUD Sementara 1950 hingga berlakunya kembali UUD 1945 dan perubahan konstitusi pada era Reformasi.
+                  Materi ini memiliki karakteristik historis dan konseptual. Peserta didik perlu memahami urutan waktu, latar belakang perubahan serta karakteristik konstitusi yang berlaku pada setiap periode. Pemahaman tersebut menjadi landasan untuk melihat perkembangan sistem ketatanegaraan dan pelaksanaan demokrasi di Indonesia.
+                </div>
+                <div class="paragraf-analisis">
+                  2. Analisis Submateri: Periodesasi UUD di Indonesia
+                </div>
+                <div class="paragraf-analisis">
+                  Periodesasi pemberlakuan UUD di Indonesia menuntut peserta didik memahami perubahan konstitusi berdasarkan konteks sejarah dan perkembangan politik nasional. Secara umum, periodisasi tersebut mencakup:<br/>
+1. UUD 1945: berlaku sejak 18 Agustus 1945 sampai 27 Desember 1949. <br/>
+2. Konstitusi Republik Indonesia Serikat (RIS): berlaku sejak 27 Desember 1949 sampai 17 Agustus 1950.<br/>
+3. UUD Sementara 1950: berlaku sejak 17 Agustus 1950 sampai 5 Juli 1959.<br/>
+4. Berlakunya kembali UUD 1945: dimulai melalui Dekret Presiden 5 Juli 1959.<br/>
+5. UUD 1945 pada era Reformasi: mengalami empat tahap perubahan pada 1999–2002.<br/>
+                </div>
+                <div class="paragraf-analisis">
+                  Melalui submateri ini, peserta didik diarahkan untuk menjelaskan urutan pemberlakuan konstitusi, membandingkan karakteristik setiap periode serta memahami bahwa perubahan konstitusi berkaitan dengan dinamika politik dan ketatanegaraan Indonesia. Peserta didik juga perlu membedakan pemberlakuan kembali UUD 1945 pada 1959 dari perubahan UUD 1945 yang berlangsung pada era Reformasi.
+                  Potensi kesulitan belajar terletak pada banyaknya tanggal, nama konstitusi dan peristiwa sejarah yang harus dipahami secara berurutan. Selain itu, peserta didik dapat mengalami kesulitan menghubungkan perubahan konstitusi dengan latar belakang dan konsekuensinya terhadap sistem ketatanegaraan. Apabila pembelajaran hanya menekankan hafalan, pemahaman mengenai alasan dan makna perubahan tersebut berisiko kurang berkembang.
+                  Untuk mengatasi tantangan tersebut, guru dapat menggunakan garis waktu, tabel perbandingan, bacaan sejarah, dan studi kasus. Peserta didik dapat diminta menyusun urutan periode konstitusi, mengidentifikasi karakteristik setiap periode serta menjelaskan alasan pentingnya konstitusi dalam mengatur kehidupan bernegara.
+                </div>
+                <div class="paragraf-analisis">
+                  3. Kompetensi yang Dikembangkan
+                </div>
+                <div class="paragraf-analisis">
+                  Pembelajaran submateri ini diarahkan untuk mengembangkan kemampuan peserta didik dalam menguraikan periodesasi pemberlakuan UUD di Indonesia, membandingkan karakteristik konstitusi serta menjelaskan perubahan konstitusi dalam konteks sejarah ketatanegaraan. Selain pengetahuan historis, materi ini mendukung pengembangan literasi konstitusi, berpikir kronologis, berpikir kritis, komunikasi dan kemampuan menyampaikan argumentasi berdasarkan informasi yang relevan.
+                </div>
+                <div class="paragraf-analisis">
+                  4. Implikasi terhadap Pembelajaran dan Asesmen
+                </div>
+                <div class="paragraf-analisis">
+                  Karakteristik materi yang memuat urutan sejarah dan konsep ketatanegaraan memerlukan penyajian yang terstruktur dan visual. Guru dapat memanfaatkan garis waktu untuk menunjukkan perubahan konstitusi, tabel perbandingan untuk mengidentifikasi karakteristik setiap periode serta diskusi kelompok untuk membahas latar belakang perubahan konstitusi.
+                  Studi kasus dan tanya jawab dapat digunakan untuk menguji pemahaman peserta didik mengenai hubungan antara konstitusi dan kehidupan bernegara. Presentasi memberikan kesempatan kepada peserta didik untuk menjelaskan hasil analisis dan mengembangkan argumentasi.
+                  Asesmen dapat dilakukan melalui pertanyaan tentang urutan pemberlakuan UUD, penyusunan garis waktu, tabel perbandingan, analisis peristiwa sejarah, dan presentasi kelompok. Aspek yang dinilai mencakup ketepatan informasi sejarah, kemampuan menjelaskan hubungan sebab-akibat, pemahaman konsep konstitusi, serta kejelasan penyampaian pendapat.
+                </div>
+                <strong>D. Analisis Keterkaitan Materi dengan Kehidupan Peserta Didik</strong>
+                <br/>
+                <div class="paragraf-analisis">
+                  Kedua bab memiliki keterkaitan dalam membangun pemahaman peserta didik mengenai kehidupan berbangsa dan bernegara. Bab 1 memberikan landasan nilai melalui pemahaman dan penerapan Pancasila sedangkan Bab 2 memperkenalkan perkembangan konstitusi sebagai bagian dari sistem ketatanegaraan Indonesia.
+                  Nilai-nilai Pancasila dapat diterapkan dalam kehidupan sekolah melalui sikap menghargai perbedaan, gotong royong, musyawarah, dan tanggung jawab. Sementara itu, materi periodesasi UUD membantu peserta didik memahami pentingnya konstitusi dalam mengatur penyelenggaraan negara. Keterkaitan tersebut dapat digunakan untuk menunjukkan bahwa kehidupan demokratis tidak hanya membutuhkan partisipasi warga negara, tetapi juga nilai moral, aturan hukum dan penghormatan terhadap hak serta kewajiban.
+                  Dengan menghubungkan materi pelajaran dan pengalaman sehari-hari, pembelajaran diharapkan menjadi lebih bermakna dan mendorong peserta didik untuk menerapkan pengetahuannya secara bertanggung jawab.
+                </div>
+                <strong>E. Strategi Pembelajaran dan Pemanfaatan Perangkat Ajar</strong>
+                <br/>
+                <div class="paragraf-analisis">
+                  Pelaksanaan pembelajaran kedua bab menggunakan diskusi kelompok, studi kasus, tanya jawab, dan presentasi. Pemilihan strategi tersebut disesuaikan dengan karakteristik materi yang membutuhkan pemahaman konsep, penalaran, analisis peristiwa serta kemampuan menyampaikan pendapat.
+                  Diskusi kelompok digunakan untuk membangun pemahaman bersama dan melatih kolaborasi. Studi kasus membantu peserta didik menghubungkan konsep dengan situasi nyata atau peristiwa sejarah. Tanya jawab digunakan untuk mengklarifikasi pemahaman dan menggali penalaran peserta didik sedangkan presentasi menjadi sarana untuk menyampaikan hasil analisis secara sistematis.
+                  Modul ajar atau RPP berfungsi sebagai pedoman dalam mengorganisasikan tujuan, materi, langkah pembelajaran dan asesmen. LKPD digunakan untuk mengarahkan peserta didik dalam memahami bacaan, menganalisis permasalahan, mengorganisasikan informasi dan menyampaikan hasil diskusi.
+                  Efektivitas strategi tersebut perlu ditinjau berdasarkan ketercapaian tujuan pembelajaran, keterlibatan peserta didik, kualitas hasil kerja dan hasil asesmen. Dengan demikian, pemilihan strategi dan perangkat ajar tidak hanya mempertimbangkan variasi aktivitas tetapi juga kesesuaiannya dengan kebutuhan belajar dan karakteristik materi.
+                </div>
+                <strong>F. Kesimpulan</strong><br/>
+                <div class="paragraf-analisis">
+                  Berdasarkan hasil analisis, Bab 1 Menjiwai Pancasila dan Bab 2 Demokrasi Berdasarkan UUD Negara Republik Indonesia Tahun 1945 memiliki karakteristik materi yang saling melengkapi. Bab 1 berfokus pada pemahaman keterkaitan antarsila, makna sila-sila Pancasila, penerapannya dalam tindakan serta kedudukan Pancasila sebagai ideologi negara. Sementara itu, Bab 2 dalam pelaksanaan pembelajaran yang dianalisis berfokus pada periodesasi pemberlakuan UUD di Indonesia sebagai bagian dari perkembangan sejarah ketatanegaraan.
+                  Analisis menunjukkan bahwa pembelajaran kedua bab perlu dilaksanakan secara kontekstual, partisipatif dan terarah pada pengembangan kemampuan berpikir kritis. Diskusi kelompok, studi kasus, tanya jawab dan presentasi dapat mendukung pemahaman konsep sekaligus mengembangkan keterampilan komunikasi dan kolaborasi peserta didik. Penggunaan modul ajar atau RPP serta LKPD membantu menjaga keteraturan proses pembelajaran dan memberikan arahan dalam pelaksanaan kegiatan belajar.
+                  Hasil analisis materi ajar ini menjadi dasar refleksi bagi guru dalam menyelaraskan materi, strategi pembelajaran dan asesmen dengan tujuan pembelajaran. Melalui proses tersebut pembelajaran Pendidikan Pancasila diharapkan tidak berhenti pada penguasaan pengetahuan tetapi juga mendukung terbentuknya peserta didik yang memahami nilai Pancasila, memiliki literasi konstitusi serta mampu menerapkan pengetahuan secara kritis dan bertanggung jawab.
+                </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+         MEDIA
+    ===================================================== -->
+
+      <section class="page" id="media">
+        <div class="section-header">
+          <div class="section-label">E-Portfolio 03</div>
+
+          <h1>Analisis Media Pembelajaran</h1>
+
+          <p>
+            Analisis media yang digunakan untuk mendukung keterlibatan dan
+            pemahaman peserta didik.
+          </p>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <div class="card-icon">
+                 <svg xmlns="http://www.w3.org/2000/svg"
+         width="30" height="30"
+         viewBox="0 0 64 64"
+         fill="none"
+         stroke="currentColor"
+         stroke-width="2.5"
+         stroke-linecap="round"
+         stroke-linejoin="round">
+      <rect x="13" y="10" width="38" height="46" rx="5"/>
+      <path d="M24 10V7.5A3.5 3.5 0 0 1 27.5 4h9A3.5 3.5 0 0 1 40 7.5V10"/>
+      <path d="M22 25h5m5 0h10M22 35h5m5 0h10"/>
+      <path d="m22 45 3 3 5-6"/>
+    </svg>
+            </div>
+
+            <h3>Asesmen Diagnostik Bab 1 menggunakan Wayground</h3>
+               <img src="assets/media/wayground.png" alt="Lembar Kerja Peserta Didik" class="card-image">
+
+            <p>
+                Digunakan sebagai quis assesmen diagnostik kognitif untuk mengukur kemampuan awal siswa.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">
+    <svg xmlns="http://www.w3.org/2000/svg"
+         width="30" height="30"
+         viewBox="0 0 24 24"
+         fill="none"
+         stroke="currentColor"
+         stroke-width="1.8"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         aria-label="Ikon gambar">
+      <rect x="3" y="3" width="18" height="18" rx="3"/>
+      <circle cx="8.5" cy="8.5" r="1.5"/>
+      <path d="M21 15l-5-5L5 21"/>
+    </svg>
+            </div>
+
+            <h3>Emoji Perasaan Sebelum Belajar Siswa</h3>
+               <img src="assets/media/emojii.jpeg" alt="Lembar Kerja Peserta Didik" class="card-image">
+
+            <p>
+                Digunakan untuk mengetahui kesiapan perasaan siswa sebelum menjalani proses pembelajaran.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg"
+         width="30" height="30"
+         viewBox="0 0 24 24"
+         fill="none"
+         stroke="currentColor"
+         stroke-width="1.8"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         aria-label="Ikon gambar">
+      <rect x="3" y="3" width="18" height="18" rx="3"/>
+      <circle cx="8.5" cy="8.5" r="1.5"/>
+      <path d="M21 15l-5-5L5 21"/>
+    </svg>
+            </div>
+
+            <h3>Emoji Perasaan Setelah Belajar Siswa</h3>
+               <img src="assets/media/emoji.jpeg" alt="Lembar Kerja Peserta Didik" class="card-image">
+
+            <p>
+                Digunakan untuk mengetahui ungkapan perasaan siswa setelah menjalani proses pembelajaran.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🖥️</div>
+
+            <h3>PPT Interaktif</h3>
+
+            <p>
+              Digunakan untuk menyajikan materi secara visual serta memberikan
+              pertanyaan pemantik. 
+            </p>
+            <h6>Klik unduh PPT dibawah:</h6>
+
+            <br />
+            <a href="assets/ppt/PPT siklus 1_Bab 1 Sub Bab A.pptx" target="_blank" class="tag">PPT Siklus 1_Bab 1 Sub Bab A</a>
+            <br/>
+            <a href="assets/ppt/PPT siklus 2_Bab 1 Sub Bab B.pptx" target="_blank" class="tag">PPT Siklus 2_Bab 1 Sub Bab B</a>
+            <br/>
+            <a href="assets/ppt/PPT siklus 3_Bab 1 Sub Bab C.pptx" target="_blank" class="tag">PPT Siklus 3_Bab 1 Sub Bab C</a>
+            <br/>
+            <a href="assets/ppt/PPT siklus 3_Bab 1 Sub Bab D.pptx" target="_blank" class="tag">PPT Siklus 3_Bab 1 Sub Bab D</a>
+            <br/>
+            <a href="assets/ppt/PPT siklus 4_Bab 2 Sub Bab A.pptx" target="_blank" class="tag">PPT Siklus 4_Bab 2 Sub Bab A</a>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🎬</div>
+            <h3>Tutorials Pembuatan Web dari Google Sites 🌐</h3>
+
+              <video controls width="100%" preload="metadata">
+        <source src="assets/video/googlesites.mp4" type="video/mp4">
+        Putar video tutorial
+    </video>
+
+            <p>
+              Website digunakan sebagai penyajian hasil analisis siswa berdasarkan pertanyaan yang ada di LKPD. 
+            </p>
+          </div>
+
+            <div class="card">
+            <div class="card-icon">🎬</div>
+            <h3>Tutorials Pembuatan Barcode dari Canva 🎨</h3>
+
+              <video controls width="100%" preload="metadata">
+        <source src="assets/video/canva.mp4" type="video/mp4">
+        Putar video tutorial
+    </video>
+
+            <p>
+              Barcode dibuat dari link website google sites dan digunakan sebagai media produk proyek untuk menyajikan hasil
+              analisis kelompok.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">📝</div>
+
+            <h3>LKPD</h3>
+               <img src="assets/media/lkpd.jpeg" alt="Lembar Kerja Peserta Didik" class="card-image">
+
+            <p>
+              Membantu peserta didik mengikuti langkah analisis dan
+              menyelesaikan tugas secara sistematis.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🎡</div>
+
+            <h3>Picker Wheel</h3>
+               <img src="assets/media/picker.png" alt="Lembar Kerja Peserta Didik" class="card-image">
+
+            <p>
+                Digunakan untuk membantu pembagian kelompok secara lebih menarik
+              dan terstruktur.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🌐</div>
+
+            <h3>Website App Asesmen Diagnostik Bab 2 dan Pohon Literasi x Detektif Konstitusi</h3>
+
+            <p>
+              Digunakan untuk membantu pembagian kelompok sesuai jumlah point yang diperoleh melalui asesmen kemudian melanjutkan menjawab soal dengan menghubungkan kata kunci dengan konsep pada pohon literasi secara acak namun berkelompok. Selanjutnyna menjawab refleksi dan menghasilkan produk mindmapping sesuai tingkatan soal yang diperoleh.
+            </p>
+            <br/>
+
+            <a
+  href="https://ummutabinaal-hfzh.github.io/assesment_diagnostik_kognitif_kelas11/"
+  class="btn-webapp"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <span class="btn-icon">&#128187;</span>
+  <span>Mulai Web App</span>
+  <span class="btn-arrow">&#8599;</span>
+</a>
+        </div>
+          </div>
+          <br/>
+                                        <div class="analysis-box">
+          <h3>🔎 Analisis Efektivitas Media</h3>
+          <strong>Hasil Analisis Media Pembelajaran</strong><br/>
+          <div class="paragraf-analisis">
+            Media pembelajaran yang digunakan selama kegiatan Praktik Pengalaman Lapangan (PPL) di SMAN 2 Mataram kelas XI Sosial meliputi PPT interaktif, Lembar Kerja Peserta Didik (LKPD), Picker Wheel, Canva, Google Sites, QR Code dan website asesmen diagnostik. Pemilihan media tersebut disesuaikan dengan tujuan pembelajaran Pendidikan Pancasila, karakteristik peserta didik serta aktivitas pembelajaran yang dilaksanakan. Keberagaman media bertujuan membantu penyampaian materi, memfasilitasi kegiatan diskusi dan memberikan pengalaman belajar yang lebih bervariasi.
+          </div>
+          <div class="paragraf-analisis">
+            PPT interaktif digunakan untuk menyajikan materi secara terstruktur melalui perpaduan teks, gambar dan pertanyaan pemantik. Media ini membantu peserta didik memahami materi mengenai nilai-nilai Pancasila serta dinamika pemberlakuan UUD di Indonesia. Penyajian materi secara visual juga memberikan kesempatan kepada peserta didik untuk menghubungkan konsep yang dipelajari dengan situasi dalam kehidupan sehari-hari. Sementara itu, LKPD berfungsi sebagai panduan dalam mengidentifikasi permasalahan, mengumpulkan informasi, menganalisis kasus dan menyusun hasil diskusi secara sistematis.
+          </div>
+          <div class="paragraf-analisis">
+            Picker Wheel dimanfaatkan untuk membantu proses pembagian kelompok secara interaktif. Penggunaan media ini mendukung pelaksanaan pembelajaran kolaboratif karena peserta didik diarahkan untuk bekerja sama dalam menyelesaikan tugas sesuai pembagian kelompok. Melalui kegiatan kelompok, peserta didik memperoleh kesempatan untuk bertukar pendapat, menyampaikan gagasan dan berkontribusi dalam penyelesaian permasalahan. Peran guru tetap diperlukan untuk memastikan pembagian tugas berjalan dengan baik dan setiap peserta didik memperoleh kesempatan untuk berpartisipasi.
+          </div>
+          <div class="paragraf-analisis">
+            Canva, Google Sites dan QR Code digunakan untuk mendukung penyajian hasil pembelajaran dalam bentuk digital. Google Sites menjadi sarana untuk menampilkan hasil analisis kelompok, sedangkan QR Code memudahkan peserta didik mengakses halaman tersebut. Canva mendukung penyusunan tampilan visual yang lebih menarik dan terstruktur. Penggunaan media digital ini memberikan kesempatan kepada peserta didik untuk mengembangkan kreativitas, keterampilan menyajikan informasi dan kemampuan memanfaatkan teknologi dalam kegiatan pembelajaran.
+          </div>
+          <div class="paragraf-analisis">
+            Website asesmen diagnostik digunakan dalam kegiatan Pohon Literasi × Detektif Konstitusi untuk mendukung pengelompokan peserta didik berdasarkan perolehan poin dan pelaksanaan tugas sesuai tingkat soal yang diperoleh. Dalam kegiatan ini, peserta didik diarahkan untuk menghubungkan kata kunci dengan konsep yang relevan, berdiskusi bersama kelompok serta menyusun produk mind mapping. Aktivitas tersebut memberikan ruang bagi peserta didik untuk mengolah informasi, membangun pemahaman konsep dan menunjukkan hasil belajar melalui produk yang dihasilkan. Dengan demikian, media tidak hanya berfungsi sebagai sarana penyampaian informasi tetapi juga mendukung keterlibatan peserta didik dalam proses pembelajaran.
+          </div>
+          <div class="paragraf-analisis">
+            Berdasarkan analisis penggunaan media tersebut, kombinasi media visual, lembar kerja dan teknologi digital mendukung pelaksanaan pembelajaran yang lebih bervariasi, interaktif dan berpusat pada peserta didik. Keterlibatan peserta didik dapat ditinjau melalui partisipasi dalam diskusi, penyelesaian LKPD, penggunaan media digital serta hasil mind mapping yang disusun. Meskipun demikian, efektivitas media tetap dipengaruhi oleh kesesuaian dengan tujuan pembelajaran, kesiapan perangkat, ketersediaan akses internet dan kejelasan petunjuk penggunaan. Oleh karena itu, guru perlu mengevaluasi pemanfaatan setiap media secara berkala agar penggunaannya semakin sesuai dengan kebutuhan peserta didik dan mendukung pencapaian tujuan pembelajaran Pendidikan Pancasila.
+          </div>
+        </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+         VIDEO
+    ===================================================== -->
+
+      <section class="page" id="video">
+        <div class="section-header">
+          <div class="section-label">E-Portfolio 04</div>
+
+          <h1>Analisis Video Praktik Mengajar</h1>
+
+          <p>
+            Dokumentasi dan analisis pelaksanaan praktik mengajar secara
+            langsung di kelas.
+          </p>
+        </div>
+
+        <div class="analysis-box">
+<div class="media-placeholder">
+  <iframe
+    src="https://youtube.com/embed/cXQ30XJagh8"
+    title="Video Praktik Mengajar Pendidikan Pancasila"
+     frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write;
+           encrypted-media; gyroscope; picture-in-picture;
+           web-share"
+    allowfullscreen>
+  </iframe>
+</div>
+
+          <h3>🎥 Identitas Video</h3>
+
+          <p>
+            Judul video:
+            <strong> Praktik Mengajar Pendidikan Pancasila </strong>
+          </p>
+
+          <p>
+            Satuan pendidikan:
+            <strong> SMAN 2 Mataram </strong>
+          </p>
+
+          <p>
+            Kelas:
+            <strong> XI Sosial </strong>
+          </p>
+          <br/>
+           <div class="analysis-box-2">
+<div class="media-placeholder">
+  <iframe
+    src="https://youtube.com/embed/TQSLcYb5wSQ"
+    title="Video Praktik Mengajar Pendidikan Pancasila"
+     frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write;
+           encrypted-media; gyroscope; picture-in-picture;
+           web-share"
+    allowfullscreen>
+  </iframe>
+</div>
+<h3>🎥 Identitas Video</h3>
+
+          <p>
+            Judul video:
+            <strong> Praktik Mengajar Pendidikan Pancasila </strong>
+          </p>
+
+          <p>
+            Satuan pendidikan:
+            <strong> SMAN 2 Mataram </strong>
+          </p>
+
+          <p>
+            Kelas:
+            <strong> XI Sosial</strong>
+          </p>
+          <br/>
+        </div>
+
+
+        <div class="grid grid-2">
+          <div class="analysis-box">
+            <h3>✅ Hal yang Berhasil</h3>
+
+            <ul>
+              <li>
+                Pembukaan pembelajaran dapat dilaksanakan secara terstruktur.
+              </li>
+
+              <li>Guru menggunakan PPT interaktif.</li>
+
+              <li>Peserta didik diberi kesempatan menjawab pertanyaan.</li>
+
+              <li>Peserta didik terlibat aktif dalam media pembelajaran</li>
+
+              <li>Peserta didik terlibat dalam diskusi kelompok.</li>
+
+              <li>Kegiatan refleksi tetap dilaksanakan.</li>
+            </ul>
+          </div>
+
+          <div class="analysis-box">
+            <h3>⚠️ Hal yang Perlu Diperbaiki</h3>
+
+            <ul>
+              <li>Pengelolaan waktu.</li>
+
+              <li>Manajemen kelas.</li>
+
+              <li>Pengelolaan siswa yang mudah terdistraksi.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="analysis-box">
+          <strong>🎬 Hasil Analisis Mengajar Video 1</strong>
+          <br/>
+          <div>
+            <div class="paragraf-analisis">
+              1. Keterampilan Membuka Pembelajaran
+            </div>
+             <div class="paragraf-analisis">
+              Kegiatan pembukaan dirancang untuk membangun kesiapan fisik, mental, dan kognitif peserta didik sebelum memasuki kegiatan inti. Guru mengawali pembelajaran dengan memberikan salam, mengajak peserta didik berdoa, memeriksa kehadiran, dan memastikan kesiapan belajar. Selanjutnya, guru melaksanakan apersepsi dengan mengulas kembali pembelajaran sebelumnya mengenai makna sila-sila Pancasila dan contoh penerapannya dalam kehidupan sehari-hari. Kegiatan ini penting karena pembelajaran merupakan kelanjutan dari proyek kelompok yang telah dikembangkan pada pertemuan sebelumnya, termasuk hasil analisis kasus, rancangan PPT, dan sketsa poster.
+              Motivasi diberikan dengan menghubungkan materi Pancasila dalam tindakan dengan fungsi poster sebagai media ajakan kepada warga sekolah. Peserta didik diarahkan untuk memahami bahwa nilai-nilai Pancasila tidak cukup hanya diketahui, tetapi perlu diwujudkan melalui tindakan nyata. Guru juga merencanakan penyampaian tujuan, tahapan kegiatan, dan target penyelesaian poster manual agar peserta didik memahami tanggung jawabnya selama pembelajaran. Secara pedagogis, pembukaan ini telah dirancang secara kontekstual karena menghubungkan pengetahuan sebelumnya dengan produk yang akan dihasilkan. Agar lebih optimal, guru perlu memberikan pertanyaan pemantik yang mendorong peserta didik mengemukakan gagasan serta memastikan bahwa seluruh peserta didik memahami tujuan dan manfaat proyek yang akan dikerjakan.
+            </div>
+             <div class="paragraf-analisis">
+              2. Keterampilan Penyampaian Materi
+            </div>
+             <div class="paragraf-analisis">
+              Penyampaian materi dirancang dengan mengintegrasikan penjelasan konsep dan kegiatan proyek. Guru menjelaskan materi Pancasila dalam Tindakan melalui PPT dan LCD, disertai contoh tindakan yang sesuai maupun tidak sesuai dengan nilai-nilai Pancasila. Penjelasan tersebut kemudian dihubungkan dengan pertanyaan mendasar mengenai cara mengubah pemahaman tentang Pancasila menjadi ajakan yang dapat dilihat dan dipahami orang lain. Dengan demikian, materi tidak hanya berorientasi pada penguasaan konsep, tetapi juga diarahkan pada penerapan nilai-nilai Pancasila melalui produk yang komunikatif.
+              Materi mencakup penerapan nilai ketuhanan melalui penghormatan terhadap kegiatan ibadah dan keyakinan orang lain, nilai kemanusiaan melalui tindakan menolong dan menolak perundungan, nilai persatuan melalui penghargaan terhadap keberagaman, nilai kerakyatan melalui musyawarah, serta nilai keadilan sosial melalui pembagian tugas yang adil. Materi tersebut menjadi dasar bagi peserta didik untuk menentukan pesan utama, slogan, dan ilustrasi pada poster. Kelebihan rancangan ini terletak pada keterkaitan antara penjelasan konsep dan penerapannya dalam kehidupan nyata. Namun, guru perlu memastikan bahwa penjelasan tidak terlalu panjang sehingga waktu untuk mengembangkan produk tetap mencukupi. Penguatan konsep juga perlu diberikan ketika peserta didik memilih pesan atau ilustrasi yang belum sesuai dengan nilai Pancasila.
+            </div>
+             <div class="paragraf-analisis">
+              3. Keterampilan Interaksi Guru dan Peserta Didik
+            </div>
+             <div class="paragraf-analisis">
+              Interaksi guru dan peserta didik dirancang melalui pertanyaan pemantik, diskusi mengenai pesan utama poster, pendampingan kelompok, pertanyaan reflektif, serta kegiatan menjelaskan perkembangan hasil proyek. Guru berperan sebagai fasilitator yang membantu peserta didik menghubungkan nilai Pancasila dengan tindakan konkret, sekaligus mengarahkan mereka agar mampu menyampaikan pesan secara jelas melalui poster. Pada tahap pengembangan poster, guru berkeliling memantau proses kerja, mengajukan pertanyaan pengarah, dan membantu kelompok yang mengalami kesulitan.
+              Interaksi juga dibangun melalui kegiatan monitoring dan uji hasil sementara. Setiap kelompok diminta menunjukkan perkembangan poster serta menjelaskan tema, nilai Pancasila yang diangkat, dan pesan utama yang ingin disampaikan. Kegiatan tersebut memberi kesempatan kepada peserta didik untuk menjelaskan alasan pemilihan slogan, gambar, dan pesan. Interaksi semacam ini berpotensi mengembangkan kemampuan komunikasi, penalaran, dan tanggung jawab terhadap hasil kerja kelompok. Meski demikian, efektivitas interaksi bergantung pada pemerataan kesempatan berbicara dan kualitas tanggapan guru. Guru perlu memastikan bahwa anggota yang bertugas menggambar atau menulis tidak menjadi satu-satunya peserta didik yang aktif, sementara anggota lainnya kurang terlibat. Pertanyaan terbuka dan pemeriksaan kontribusi individu dapat digunakan untuk memperkuat partisipasi seluruh anggota.
+            </div>
+             <div class="paragraf-analisis">
+              4. Keterampilan Penggunaan Media Pembelajaran
+            </div>
+             <div class="paragraf-analisis">
+              Media pembelajaran yang direncanakan meliputi PPT, LCD proyektor, LKPD, kertas poster, alat tulis, Google Sites dan Canva. Dalam pertemuan ini, PPT dan LCD digunakan untuk mendukung penjelasan materi, sedangkan kertas poster dan alat gambar digunakan sebagai sarana utama untuk mengembangkan sketsa menjadi poster manual. Hasil analisis kasus, rancangan proyek, dan sketsa yang telah disusun pada pertemuan sebelumnya menjadi sumber isi poster. Sementara itu, Google Sites dan Canva merupakan bagian dari rangkaian proyek yang lebih luas dan tidak harus menjadi media utama dalam kegiatan pembuatan poster manual pada pertemuan ini.
+              Penggunaan media tersebut menunjukkan adanya perpaduan antara teknologi digital dan produk visual manual. PPT membantu menyampaikan konsep, sedangkan poster menjadi sarana bagi peserta didik untuk mengomunikasikan nilai Pancasila secara kreatif kepada warga sekolah. Media poster juga mendorong peserta didik mempertimbangkan ketepatan pesan, keterbacaan tulisan, relevansi ilustrasi, dan kerapian desain. Agar penggunaan media lebih efektif, guru perlu memastikan bahwa materi pada PPT mudah dipahami, alat dan bahan tersedia, serta peserta didik mendapatkan petunjuk yang jelas mengenai kriteria poster. Guru juga perlu mengarahkan peserta didik agar kreativitas visual tetap mendukung ketepatan isi, bukan justru mengaburkan pesan utama.
+            </div>
+             <div class="paragraf-analisis">
+              5. Keterampilan Pengelolaan Kelas
+            </div>
+            <div class="paragraf-analisis">
+              Pengelolaan kelas dirancang melalui pembagian peserta didik ke dalam tujuh kelompok yang terdiri atas lima sampai enam orang. Setiap anggota memperoleh tanggung jawab sesuai peran, seperti ketua kelompok, penanggung jawab isi, penulis teks atau slogan, ilustrator, penata desain, dan pemeriksa akhir. Pembagian peran tersebut bertujuan memastikan proses pengerjaan poster berjalan terorganisasi, mendorong partisipasi, dan mengurangi kemungkinan tugas hanya dikerjakan oleh beberapa anggota. Bagi kelompok yang terdiri atas lima orang, modul memperbolehkan satu anggota merangkap dua tugas.
+              Selama kegiatan pengembangan poster, guru berkeliling untuk memantau proses kerja, membantu kelompok yang mengalami kesulitan, dan memastikan pembagian tugas berlangsung adil. Pengelolaan kelas juga dilakukan melalui pemeriksaan kesiapan ide, pesan, ilustrasi dan slogan sebelum pengerjaan poster dimulai. Rancangan ini mendukung pembelajaran kolaboratif dan pengembangan tanggung jawab. Namun, kegiatan kelompok dengan tugas yang beragam membutuhkan pemantauan yang konsisten agar seluruh peserta didik tetap fokus dan waktu tidak terbuang untuk menentukan ulang pembagian kerja. Guru perlu menetapkan aturan kerja, target penyelesaian, dan batas waktu yang jelas serta memberikan pendampingan secara proporsional kepada kelompok yang memerlukan bantuan.
+            </div>
+             <div class="paragraf-analisis">
+              6. Keterampilan Pemberian Penguatan
+            </div>
+             <div class="paragraf-analisis">
+              Pemberian penguatan dirancang melalui umpan balik terhadap isi dan desain poster serta apresiasi terhadap kreativitas dan kerja sama kelompok. Pada tahap pengembangan poster, guru memberikan masukan mengenai kesesuaian isi dengan nilai Pancasila dan membantu peserta didik menyempurnakan pesan yang akan disampaikan. Selanjutnya, pada tahap monitoring dan uji hasil sementara, guru memberikan umpan balik singkat mengenai ketepatan nilai, keterbacaan tulisan, relevansi ilustrasi, dan kerapian desain. Peserta didik kemudian memperbaiki bagian poster yang masih kurang.
+              Penguatan dalam rancangan ini tidak hanya berupa pujian, tetapi juga umpan balik yang membantu peserta didik meningkatkan kualitas produk. Pendekatan tersebut relevan dengan tujuan pembelajaran karena peserta didik perlu memahami alasan suatu pesan atau ilustrasi dianggap tepat, bukan sekadar menerima penilaian benar atau salah. Guru juga merencanakan pemberian apresiasi terhadap kreativitas dan kerja sama kelompok pada kegiatan penutup. Agar lebih efektif, penguatan perlu diberikan secara spesifik, misalnya dengan menjelaskan kelebihan slogan, ketepatan hubungan antara tindakan dan nilai Pancasila, atau perbaikan yang diperlukan agar poster lebih mudah dipahami. Guru juga perlu menghargai proses dan usaha peserta didik, termasuk kemampuan mereka menerima masukan dan memperbaiki hasil pekerjaan.
+            </div>
+             <div class="paragraf-analisis">
+              7. Keterampilan Melaksanakan Asesmen Pembelajaran
+            </div>
+             <div class="paragraf-analisis">
+              Asesmen dalam rancangan ini mencakup asesmen diagnostik, formatif, dan sumatif. Asesmen diagnostik dilakukan melalui pertanyaan lisan pada awal pembelajaran untuk mengetahui pemahaman peserta didik mengenai Pancasila dalam tindakan, contoh penerapan nilai Pancasila, dan fungsi poster sebagai media komunikasi. Hasilnya dapat digunakan untuk mengetahui kesiapan peserta didik sebelum melanjutkan proyek. Asesmen formatif dilaksanakan selama proses pembelajaran dengan memperhatikan pemahaman konsep, kesesuaian isi poster, kolaborasi, kreativitas, tanggung jawab, dan kemampuan melakukan refleksi.
+              Asesmen sumatif dilakukan melalui penilaian produk poster manual dan proses pengerjaannya, yang dapat digabungkan dengan hasil proyek digital dari pertemuan sebelumnya. Modul menetapkan skor maksimal 40, terdiri atas aspek pengetahuan dengan skor maksimal 12, keterampilan dengan skor maksimal 16, dan sikap dengan skor maksimal 12. Penilaian menggunakan skala 1–4, dengan kategori sangat baik, baik, cukup, dan perlu bimbingan. Nilai dihitung dengan rumus skor perolehan dibagi skor maksimal, kemudian dikalikan 100. Selain itu, rubrik poster mencakup ketepatan isi, kedalaman pesan, kreativitas, keterbacaan, kerapian, dan kolaborasi.
+              Rancangan asesmen tersebut cukup komprehensif karena tidak hanya menilai produk akhir, tetapi juga proses dan sikap selama pengerjaan proyek. Meskipun demikian, guru perlu memastikan bahwa setiap indikator dinilai berdasarkan bukti yang dapat diamati, seperti hasil poster, pembagian tugas, kontribusi anggota, dan respons terhadap umpan balik. Penilaian individu juga perlu diperhatikan agar nilai kelompok tidak sepenuhnya menutupi perbedaan kontribusi antarpeserta didik. Hasil asesmen selanjutnya dapat digunakan untuk menentukan perbaikan poster, memberikan pendampingan, dan merencanakan tindak lanjut pembelajaran.
+            </div>
+             <div class="paragraf-analisis">
+              8. Keterampilan Pengelolaan Waktu
+            </div>
+            <div class="paragraf-analisis">
+              Pembelajaran dirancang berlangsung selama 90 menit, yang terdiri atas kegiatan pendahuluan selama 10 menit, kegiatan inti selama 70 menit, dan penutup selama 10 menit. Pada kegiatan inti, waktu dialokasikan untuk menentukan pertanyaan mendasar selama 10 menit, meninjau dan menyempurnakan rencana proyek selama 10 menit, mengembangkan poster manual selama 35 menit, melakukan monitoring dan uji hasil sementara selama 10 menit, serta mengevaluasi pengalaman belajar selama 5 menit. Pembagian waktu tersebut menunjukkan bahwa kegiatan utama difokuskan pada pengembangan produk, sementara kegiatan evaluasi dan refleksi tetap memperoleh alokasi khusus.
+              Tantangan pengelolaan waktu terletak pada proses mengembangkan sketsa menjadi poster manual yang membutuhkan koordinasi, kreativitas, ketelitian, dan pembagian tugas. Peserta didik juga perlu waktu untuk menanggapi umpan balik dan memperbaiki poster sebelum kegiatan berakhir. Oleh karena itu, guru perlu memastikan bahwa setiap kelompok telah memiliki rancangan dan pembagian tugas dari pertemuan sebelumnya, sebagaimana tercantum dalam modul. Guru juga perlu menyampaikan pengingat waktu dan memantau perkembangan setiap kelompok agar kegiatan tidak terpusat pada penyelesaian gambar semata. Alokasi waktu perlu dikelola secara fleksibel, tetapi tetap menjaga agar kegiatan monitoring, refleksi, dan penutupan tidak terabaikan.
+            </div>
+            <div class="paragraf-analisis">
+              9. Keterampilan Menutup Pembelajaran
+            </div>
+            <div class="paragraf-analisis">
+              Kegiatan penutup dirancang untuk membantu peserta didik merefleksikan pengalaman belajar, memahami kembali makna Pancasila dalam tindakan, dan menentukan tindak lanjut proyek. Guru mengajak peserta didik menyebutkan satu tindakan nyata yang akan dilakukan setelah pembelajaran sebagai bentuk penerapan nilai Pancasila. Selanjutnya, guru menegaskan bahwa Pancasila harus diwujudkan melalui perilaku nyata, bukan sekadar slogan. Kegiatan ini memperkuat keterkaitan antara materi yang dipelajari, produk poster yang dibuat, dan perilaku yang diharapkan dalam kehidupan sehari-hari.
+              Guru juga memberikan apresiasi terhadap kreativitas dan kerja sama kelompok serta menjelaskan tindak lanjut berupa penyempurnaan, presentasi, atau pemajangan poster pada pembelajaran berikutnya. Peserta didik diharapkan mencatat tugas perbaikan dan menjaga hasil karya yang telah dibuat. Kegiatan diakhiri dengan doa dan salam. Rancangan penutup ini tidak hanya berfungsi mengakhiri pembelajaran, tetapi juga membangun komitmen peserta didik untuk menerapkan nilai Pancasila. Agar lebih optimal, guru perlu memastikan bahwa refleksi memberikan kesempatan kepada peserta didik untuk menyampaikan pengalaman dan kesulitan secara jujur, sehingga hasilnya dapat menjadi bahan perbaikan pembelajaran selanjutnya.
+            </div>
+             <div class="paragraf-analisis">
+              10. Refleksi dan Rekomendasi Perbaikan
+            </div>
+             <div class="paragraf-analisis">
+              Berdasarkan rancangan pembelajaran, terdapat beberapa kelebihan yang dapat diidentifikasi. Pertama, pembelajaran memiliki kesinambungan dengan pertemuan sebelumnya karena peserta didik mengembangkan hasil analisis kasus dan sketsa yang telah disiapkan. Kedua, model PjBL memberikan kesempatan kepada peserta didik untuk menghasilkan produk nyata yang mengomunikasikan nilai Pancasila. Ketiga, pembagian peran mendukung pengembangan tanggung jawab dan gotong royong. Keempat, kegiatan monitoring dan uji hasil sementara menyediakan ruang untuk memperoleh umpan balik dan melakukan perbaikan sebelum produk diselesaikan. Kelima, asesmen dirancang untuk menilai aspek pengetahuan, keterampilan, dan sikap.
+              Adapun aspek yang perlu diperhatikan adalah pemerataan kontribusi anggota, pengelolaan waktu, ketepatan isi poster, dan efektivitas pemberian umpan balik. Dalam proyek kelompok, terdapat kemungkinan bahwa peserta didik yang memiliki keterampilan menggambar lebih dominan dibandingkan anggota lain. Oleh karena itu, guru perlu memastikan setiap anggota menjalankan peran yang disepakati dan memberikan kontribusi yang dapat dikenali. Selain itu, kriteria penilaian poster perlu dijelaskan sebelum pengerjaan agar peserta didik mengetahui standar kualitas yang harus dicapai.
+              Sebagai tindak lanjut, guru dapat menggunakan daftar pemeriksaan sederhana untuk memantau pembagian tugas, kemajuan poster, ketepatan pesan, dan keterlibatan peserta didik. Umpan balik sebaiknya diberikan selama proses pengerjaan sehingga peserta didik masih memiliki kesempatan untuk memperbaiki produk. Refleksi individu juga dapat dimanfaatkan untuk mengetahui kontribusi, kesulitan, dan kebutuhan bantuan setiap peserta didik. Dengan langkah tersebut, pembelajaran diharapkan tidak hanya menghasilkan poster yang baik, tetapi juga mengembangkan pemahaman, tanggung jawab, kreativitas, dan sikap gotong royong.
+            </div>
+          </div>
+        </div>
+
+        <div class="analysis-box">
+          <strong>🎬 Hasil Analisis Video Mengajar 2</strong>
+          <br/>
+          <div>
+              <div>
+                <div class="paragraf-analisis">
+                  1. Keterampilan Membuka Pembelajaran
+                </div>
+                <div class="paragraf-analisis">
+                  Kegiatan pembukaan dirancang secara sistematis melalui pemeriksaan kesiapan belajar, doa, pengecekan kehadiran, sapaan dan penciptaan suasana belajar yang positif. Guru mengaitkan materi dengan pentingnya aturan dasar dalam kehidupan bersama, kemudian mengajukan pertanyaan pemantik mengenai kondisi negara apabila tidak memiliki aturan dasar. Penggunaan ilustrasi Proklamasi Kemerdekaan, Republik Indonesia Serikat, Dekrit Presiden 5 Juli 1959, Reformasi 1998 dan perubahan UUD 1945 dapat membangkitkan rasa ingin tahu peserta didik. Penyampaian tujuan dan manfaat pembelajaran juga membantu memberikan arah kegiatan belajar. Rancangan ini sudah mendukung pembukaan yang kontekstual meskipun efektivitasnya tetap bergantung pada pelaksanaan dan respons peserta didik.
+                </div>
+                <div class="paragraf-analisis">
+                  2. Penyampaian Materi
+                </div>
+                <div class="paragraf-analisis">
+                  Penyampaian materi dirancang melalui tahapan yang bergerak dari pemahaman informasi dasar menuju analisis hubungan sebab-akibat dan pengembangan argumentasi. Peserta didik mempelajari periodesasi konstitusi Indonesia melalui aktivitas Pohon Literasi, penyusunan peta konsep, analisis peristiwa penting dan penyusunan argumentasi. Pendekatan ini memungkinkan materi tidak hanya disampaikan melalui penjelasan guru tetapi juga dikonstruksi oleh peserta didik melalui kegiatan belajar. Penyesuaian tingkat kesulitan berdasarkan pendekatan Teaching at the Right Level (TaRL) menjadi kelebihan rancangan karena memberikan kesempatan kepada peserta didik untuk belajar sesuai kesiapan masing-masing. Guru perlu memastikan bahwa konsep sejarah ketatanegaraan tetap akurat dan memberikan penjelasan tambahan apabila ditemukan miskonsepsi.
+                </div>
+                <div class="paragraf-analisis">
+                  3. Interaksi Guru dan Peserta Didik
+                </div>
+                <div class="paragraf-analisis">
+                  Interaksi dirancang melalui pertanyaan pemantik, pengamatan ilustrasi, diskusi kelompok, pengerjaan aktivitas literasi dan penyusunan argumentasi. Peserta didik memperoleh kesempatan untuk mengemukakan dugaan, menghubungkan peristiwa sejarah dan menjelaskan alasan berdasarkan informasi yang dipelajari. Guru berperan sebagai fasilitator yang mengarahkan proses berpikir serta memberikan bantuan sesuai kebutuhan belajar. Pembagian kelompok berdasarkan kesiapan belajar dapat mendukung interaksi yang lebih terarah, sedangkan pengelompokan yang fleksibel memungkinkan perkembangan peserta didik dipantau. Untuk meningkatkan kualitas interaksi, guru perlu memastikan setiap peserta didik berpartisipasi bukan hanya mengandalkan anggota kelompok yang lebih aktif.
+                </div>
+                <div class="paragraf-analisis">
+                  4. Penggunaan Media Pembelajaran
+                </div>
+                <div class="paragraf-analisis">
+                  Penggunaan media dalam rancangan ini meliputi website untuk asesmen diagnostik, teks bacaan digital, Pohon Literasi Kata Kunci, serta kertas untuk membuat peta konsep atau mind map. Media digital berfungsi mempermudah akses informasi dan memberikan pengalaman belajar yang lebih interaktif, sedangkan peta konsep membantu peserta didik mengorganisasikan informasi tentang periode, konstitusi, tahun dan peristiwa penting. Integrasi media digital dengan aktivitas tertulis juga memberikan variasi pengalaman belajar. Agar penggunaannya efektif, guru perlu memastikan petunjuk penggunaan mudah dipahami, akses website berjalan baik dan peserta didik tidak hanya berfokus menyelesaikan aktivitas digital tanpa memahami isi materi.
+                </div>
+                <div class="paragraf-analisis">
+                  5. Pengelolaan Kelas
+                </div>
+                <div class="paragraf-analisis">
+                  Pengelolaan kelas dirancang melalui pemeriksaan kesiapan belajar, penjelasan mekanisme kegiatan, pengaturan kelompok berdasarkan hasil asesmen diagnostik, serta pemberian tugas sesuai tingkat kesiapan. Pembagian aktivitas menjadi Level 1—Memahami, Level 2—Menganalisis, dan Level 3—Mengembangkan Argumen membantu guru mengatur pembelajaran berdasarkan kebutuhan peserta didik. Rancangan ini juga menekankan bahwa kelompok tidak digunakan untuk memberi label kemampuan secara permanen, melainkan sebagai dasar penyesuaian pembelajaran yang fleksibel. Tantangan yang perlu diantisipasi adalah memastikan semua kelompok memahami instruksi, tetap fokus dan memperoleh pendampingan yang proporsional. Guru perlu melakukan pemantauan secara berkala agar peserta didik yang mengalami kesulitan tidak tertinggal selama kegiatan berlangsung.
+                </div>
+                <div class="paragraf-analisis">
+                  6. Pemberian Penguatan
+                </div>
+                <div class="paragraf-analisis">
+                  Pemberian penguatan direncanakan melalui umpan balik terhadap hasil aktivitas peserta didik, penguatan konsep yang belum dipahami, dan apresiasi terhadap proses belajar. Guru dapat menggunakan hasil Pohon Literasi untuk mengidentifikasi kesalahan pemahaman, kemudian memberikan penjelasan atau bantuan langsung pada konsep yang masih keliru. Pada akhir pembelajaran, penguatan diberikan kembali terhadap pemahaman mengenai perubahan dan periodesasi konstitusi Indonesia. Pendekatan ini menunjukkan bahwa penguatan tidak hanya berupa pujian, tetapi juga perbaikan pemahaman melalui umpan balik yang bermakna. Agar lebih efektif, penguatan sebaiknya disampaikan secara spesifik, menjelaskan bagian yang sudah tepat dan bagian yang perlu diperbaiki serta mendorong peserta didik untuk terus mengembangkan kemampuan analisisnya.
+                </div>
+                <div class="paragraf-analisis">
+                  7. Asesmen Pembelajaran
+                </div>
+                <div class="paragraf-analisis">
+                  Asesmen menjadi komponen penting dalam rancangan karena digunakan sejak awal hingga akhir pembelajaran. Asesmen diagnostik dilakukan melalui website dengan 20 soal yang dipilih secara acak dari bank soal berjumlah 38 soal, dengan skor maksimal 100. Hasilnya digunakan untuk memetakan kesiapan belajar dan menentukan aktivitas TaRL yang sesuai, bukan semata-mata sebagai nilai akhir. Selama kegiatan inti, perkembangan peserta didik dapat dinilai melalui Pohon Literasi, peta konsep, analisis sebab-akibat, argumentasi, serta kolaborasi. Modul juga menyediakan rubrik yang menilai ketepatan konsep, kelengkapan informasi, keterkaitan antarkonsep, urutan periodesasi, kreativitas dan keterbacaan produk. Pada akhir pembelajaran, refleksi dan exit ticket digunakan untuk mengetahui pemahaman akhir. Rancangan asesmen ini cukup komprehensif karena menggabungkan penilaian awal, proses dan hasil, serta menyediakan dasar untuk remedial maupun pengayaan.
+                </div>
+                <div class="paragraf-analisis">
+                  8. Pengelolaan Waktu
+                </div>
+                <div class="paragraf-analisis">
+                  Rancangan pembelajaran memiliki beberapa tahapan, mulai dari pembukaan, asesmen diagnostik, pemetaan kelompok, Pohon Literasi, aktivitas sesuai level TaRL, pembuatan peta konsep, analisis, refleksi hingga exit ticket. Banyaknya tahapan menuntut pengelolaan waktu yang terencana agar setiap kegiatan dapat terlaksana secara seimbang. Guru perlu menetapkan batas waktu yang jelas untuk asesmen digital, diskusi, pengerjaan tugas, dan refleksi. Selain itu, waktu pendampingan perlu dibagi secara proporsional berdasarkan kebutuhan kelompok. Modul belum mencantumkan alokasi waktu terperinci untuk setiap tahapan, sehingga penetapan durasi dan pemantauan pelaksanaannya menjadi aspek yang perlu diperhatikan agar kegiatan inti tidak mengurangi waktu penutup.
+                </div>
+                <div class="paragraf-analisis">
+                  9. Penutupan Pembelajaran
+                </div>
+                <div class="paragraf-analisis">
+                  Kegiatan penutup dirancang melalui penyusunan kesimpulan bersama, penguatan konsep, refleksi individu, pengerjaan exit ticket, pemberian apresiasi, doa dan salam. Pertanyaan refleksi membantu peserta didik mengidentifikasi pemahaman yang diperoleh dan konsep yang masih membingungkan. Sementara itu, exit ticket mengenai satu periode penting dalam perjalanan konstitusi Indonesia beserta alasannya dapat digunakan untuk memeriksa pemahaman terhadap materi. Guru kemudian menggunakan hasil refleksi dan exit ticket untuk menentukan tindak lanjut berupa remedial pada konsep dasar atau pengayaan melalui analisis hubungan perubahan konstitusi dengan perkembangan demokrasi Indonesia. Penutupan ini dirancang tidak hanya untuk mengakhiri kegiatan belajar tetapi juga menjadi dasar perbaikan pembelajaran berikutnya.
+                </div>
+          </div>
+      </section>
+      <!-- =====================================================
+         NONMENGAJAR
+    ===================================================== -->
+      <section class="page" id="nonmengajar">
+        <div class="section-header">
+          <div class="section-label">E-Portfolio 05</div>
+
+          <h1>Analisis Kegiatan Nonmengajar</h1>
+
+          <p>
+            Dokumentasi keterlibatan dalam kegiatan sekolah di luar aktivitas
+            pembelajaran di kelas.
+          </p>
+        </div>
+
+        <div class="analysis-box">
+          <h3>🏫 Kegiatan Nonmengajar</h3>
+
+          <p>
+         Kegiatan nonmengajar adalah kegiatan yang dilakukan oleh guru atau mahasiswa PPG di lingkungan sekolah selain melaksanakan proses pembelajaran secara langsung yang bertujuan mendukung penyelenggaraan pendidikan, pembinaan peserta didik, pengembangan karakter serta terciptanya lingkungan sekolah yang aman, tertib, dan kondusif.
+          </p>
+        </div>
+
+        <div class="timeline">
+
+          <div class="timeline-item">
+            <h4>Kokurikuler</h4>
+
+            <p>
+            Kegiatan yang dirancang untuk memperkuat, memperdalam, atau memperkaya kompetensi dan karakter peserta didik yang berkaitan dengan tujuan pendidikan dan pembelajaran.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <h4>Ekstrakulikuler</h4>
+            <p>Kegiatan yang diselenggarakan di luar kegiatan intrakurikuler dan kokurikuler untuk mengembangkan potensi, minat, bakat, kepribadian, kerja sama, kemandirian, dan kemampuan sosial peserta didik.</p>
+          </div>
+        </div>
+
+        <br />
+
+        <div class="analysis-box">
+          <h3>🔎 Analisis Manfaat Kegiatan</h3>
+
+          <div class="paragraf-analisis">
+Berbagai kegiatan nonmengajar di SMAN 2 Mataram menunjukkan bahwa pendidikan di sekolah tidak hanya berlangsung melalui pembelajaran di kelas, tetapi juga melalui pembiasaan, pembinaan karakter, kegiatan keagamaan, kemitraan dengan lembaga eksternal, serta pengembangan minat dan bakat peserta didik.
+
+Kegiatan upacara bendera, Imtaq, dan penerapan 5S mendukung pembentukan kedisiplinan, karakter religius, nasionalisme, dan sikap saling menghormati. Sementara itu, penerapan P5 serta perayaan Maulid Nabi dapat menjadi sarana penguatan karakter dan pengembangan nilai-nilai positif, sesuai dengan rancangan program yang dilaksanakan sekolah.
+
+Kegiatan sosialisasi Bawaslu dan kepolisian memberikan kesempatan kepada peserta didik untuk memperluas wawasan mengenai demokrasi, kesadaran hukum serta pencegahan kekerasan. Kemitraan dengan pihak eksternal juga membantu sekolah menghadirkan pengalaman edukatif yang relevan dengan kehidupan nyata.
+
+Selanjutnya, lomba fashion show oleh Remus, partisipasi dalam lomba futsal antarsekolah dan ekstrakurikuler PMI mendukung pengembangan kreativitas, kepercayaan diri, sportivitas, kerja sama, kepemimpinan, serta kepedulian kemanusiaan.
+
+Kebermanfaatannya bagi warga sekolah meliputi terciptanya lingkungan sekolah yang lebih tertib dan positif, terbentuknya hubungan sosial yang harmonis, meningkatnya kesempatan peserta didik mengembangkan potensi diri, serta terbukanya ruang kerja sama antara sekolah dan lembaga eksternal. Guru, wali kelas, guru BK, tenaga kependidikan, dan pengelola kegiatan turut berperan dalam mendukung pelaksanaan program-program tersebut.
+
+Dengan demikian, kegiatan nonmengajar di SMAN 2 Mataram berperan sebagai bagian penting dari ekosistem pendidikan yang mendukung perkembangan peserta didik secara utuh, baik dalam aspek karakter, sosial, emosional, religius maupun keterampilan.
+            </div>
+        </div>
+
+        <div class="analysis-box">
+          <h3>📸 Dokumentasi Habituasi atau Kegiatan Rutin Non Mengajar</h3>
+
+        <div class="section-header">
+          <div class="section-label">E-Portfolio 03</div>
+
+          <p>
+            Analisis media yang digunakan untuk mendukung keterlibatan dan
+            pemahaman peserta didik.
+          </p>
+        </div>
+
+        <div class="grid grid">
+          <div class="card">
+            <div class="card-icon">🖥️</div>
+
+            <h3>Upacara Bendera Setiap Hari Senin</h3>
+
+            <p>
+              Pembiasaan dan penguatan karakter kebangsaan di SMAN 2 Mataram.
+            </p>
+            <img src="assets/non mengajar/upacara.jpeg" alt="Upacara Bendera" class="card-image">
+        </div>
+                 <div class="card">
+            <div class="card-icon">💻</div>
+            <h3>Imtaq setiap hari Jumat</h3>
+            <p>
+             Pembiasaan keagamaan dan penguatan karakter religius di SMAN 2 Mataram.
+            </p>
+            <img src="assets/non mengajar/imtaq.jpeg" alt="Imtaq" class="card-image">
+          </div>
+                   <div class="card">
+            <div class="card-icon">💻</div>
+            <h3>Penerapan 5S (Senyum, Salam, Sapa, Sopan, Santun)</h3>
+            <p>
+              Budaya positif dan pembiasaan karakter di SMAN 2 Mataram.
+            </p>
+             <img src="assets/non mengajar/5S.jpeg" alt="5S" class="card-image">
+          </div>
+          </div>
+        </div>
+
+      <div class="analysis-box">
+          <h3>📸 Dokumentasi Kokurikuler</h3>
+
+        <div class="section-header">
+          <div class="section-label">E-Portfolio 03</div>
+
+          <p>
+            Analisis media yang digunakan untuk mendukung keterlibatan dan
+            pemahaman peserta didik.
+          </p>
+        </div>
+
+        <div class="grid grid">
+          <div class="card">
+            <div class="card-icon">🖥️</div>
+
+            <h3>Penerapan P5 oleh masing-masing wali kelas</h3>
+
+            <p>
+              Penguatan karakter dan pengembangan potensi peserta didik di SMAN 2 Mataram.
+            </p>
+            <img src="assets/non mengajar/P5.jpeg" alt="5S" class="card-image">
+        </div>
+                 <div class="card">
+            <div class="card-icon">💻</div>
+            <h3>Sosialisasi Bawaslu pada jam pelajaran PPKn</h3>
+            <p>
+              Kegiatan edukasi dan kemitraan dengan lembaga eksternal kelas XI sains 2 di SMAN 2 Mataram.
+            </p>
+            <img src="assets/non mengajar/bawaslu.jpeg" alt="5S" class="card-image">
+          </div>
+                   <div class="card">
+            <div class="card-icon">💻</div>
+            <h3>Perayaan Maulid Nabi melalui ceramah tentang perjalanan Nabi Muhammad saw.</h3>
+            <p>
+               Kegiatan keagamaan dan pembinaan karakter di SMAN 2 Mataram.
+            </p>
+            <img src="assets/non mengajar/maulid-nabi.jpeg" alt="5S" class="card-image">
+          </div>
+          <div class="card">
+            <div class="card-icon">💻</div>
+            <h3>Sosialisasi polisi bertema “Berani Bersuara, Selamatkan Sesama” bersama guru BK</h3>
+            <p>
+               Edukasi, pencegahan kekerasan, dan pembinaan peserta didik di SMAN 2 Mataram.
+            </p>
+            <img src="assets/non mengajar/mitra-bk.jpeg" alt="5S" class="card-image">
+          </div>
+          </div>
+        </div>
+
+         <div class="analysis-box">
+          <h3>📸 Dokumentasi Ekstrakulikuler</h3>
+
+        <div class="section-header">
+          <div class="section-label">E-Portfolio 03</div>
+
+          <p>
+            Analisis media yang digunakan untuk mendukung keterlibatan dan
+            pemahaman peserta didik.
+          </p>
+        </div>
+
+        <div class="grid grid">
+          <div class="card">
+            <div class="card-icon">🖥️</div>
+            <h3>Lomba fashion show perayaan Maulid Nabi oleh Remus SMAN 2 Mataram</h3>
+            <p>
+              Kegiatan organisasi siswa dan pengembangan kreativitas di SMAN 2 Mataram.
+            </p>
+            <img src="assets/non mengajar/lomba.jpeg" alt="5S" class="card-image">
+        </div>
+                 <div class="card">
+            <div class="card-icon">💻</div>
+            <h3>Partisipasi dalam lomba futsal antarsekolah</h3>
+            <p>
+              Pengembangan minat dan bakat serta prestasi olahraga di SMAN 2 Mataram
+            </p>
+            <img src="assets/non mengajar/partisipasi.jpeg" alt="5S" class="card-image">
+          </div>
+                   <div class="card">
+            <div class="card-icon">💻</div>
+            <h3>Kegiatan ekstrakurikuler PMI</h3>
+            <p>
+              Pengembangan keterampilan, kepedulian sosial, dan kemanusiaan di SMAN 2 Mataram.
+            </p>
+            <img src="assets/non mengajar/pmi.jpeg" alt="5S" class="card-image">
+          </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+         PENILAIAN
+    ===================================================== -->
+
+      <section class="page" id="penilaian">
+        <div class="section-header">
+          <div class="section-label">E-Portfolio 06</div>
+
+          <h1>Instrumen Penilaian</h1>
+
+          <p>
+            Dokumentasi instrumen asesmen yang dirancang beserta analisis
+            penggunaannya.
+          </p>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <div class="card-icon">🧠</div>
+
+            <h3>Asesmen Diagnostik</h3>
+
+            <p>
+              Digunakan untuk mengetahui kondisi awal pengetahuan dan
+              karakteristik peserta didik.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">📊</div>
+
+            <h3>Asesmen Formatif</h3>
+
+            <p>
+              Digunakan selama proses pembelajaran untuk memantau perkembangan
+              pemahaman peserta didik.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🏆</div>
+
+            <h3>Asesmen Produk</h3>
+
+            <p>
+              Digunakan untuk menilai kualitas produk yang dihasilkan dalam
+              kegiatan proyek.
+            </p>
+          </div>
+        </div>
+
+        <br />
+
+        <div class="analysis-box">
+          <h3>📋 Instrumen Penilaian yang Dirancang</h3>
+
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>Instrumen</th>
+                  <th>Tujuan</th>
+                  <th>Bentuk</th>
+                  <th>Waktu</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Asesmen Diagnostik</td>
+                  <td>Mengetahui kemampuan awal</td>
+                  <td>Tes / Non-Tes</td>
+                  <td>Awal</td>
+                </tr>
+
+                <tr>
+                  <td>2</td>
+                  <td>Observasi</td>
+                  <td>Mengamati keterlibatan siswa</td>
+                  <td>Lembar observasi</td>
+                  <td>Proses</td>
+                </tr>
+
+                <tr>
+                  <td>3</td>
+                  <td>Penilaian Produk</td>
+                  <td>Menilai hasil proyek</td>
+                  <td>Rubrik</td>
+                  <td>Akhir</td>
+                </tr>
+
+                <tr>
+                  <td>4</td>
+                  <td>Refleksi</td>
+                  <td>Mengetahui pengalaman belajar</td>
+                  <td>Pertanyaan reflektif</td>
+                  <td>Akhir</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="analysis-box">
+          <h3>🔎 Analisis Instrumen</h3>
+
+           <strong>Kesesuaian Instrumen Penilaian dengan Tujuan Pembelajaran: Bab I Menjiwai Pancasila</strong>
+
+           <div class="paragraf-analisis">
+            Instrumen penilaian pada pembelajaran Pendidikan Pancasila kelas XI Bab 1 Menjiwai Pancasila disusun untuk mengukur ketercapaian tujuan pembelajaran secara menyeluruh, mulai dari pemahaman awal siswa, kemampuan menganalisis kasus, keterampilan menghasilkan produk proyek, hingga kemampuan mengomunikasikan hasil kerja. Instrumen ini disesuaikan dengan penerapan model Problem Based Learning (PBL) dan Project Based Learning (PjBL), yang menekankan pemecahan masalah, kolaborasi, kreativitas, dan penerapan konsep dalam kehidupan nyata.
+           </div>
+           <div class="paragraf-analisis">
+            1. Kesesuaian instrumen dengan tujuan pembelajaran
+           </div>
+           <div class="paragraf-analisis">
+            Instrumen penilaian mencakup asesmen diagnostik kognitif melalui kuis Wayground untuk mengetahui pengetahuan awal siswa, penilaian relevansi kasus untuk mengukur kemampuan menghubungkan permasalahan nyata dengan subbab yang dipelajari, serta penilaian LKPD untuk mengukur kemampuan menganalisis kasus berdasarkan nilai-nilai Pancasila. Selanjutnya, penilaian website Google Sites, poster, barcode, PPT, dan presentasi digunakan untuk mengukur keterampilan siswa dalam mengolah informasi, menghasilkan produk, bekerja sama, dan mengomunikasikan hasil analisis. Dengan demikian, instrumen mencakup aspek pengetahuan, keterampilan, dan kolaborasi yang relevan dengan proses pembelajaran berbasis proyek.
+           </div>
+           <div class="paragraf-analisis">
+            2. Keterukuran indikator penilaian
+           </div>
+            <div class="paragraf-analisis">
+            Setiap indikator dirumuskan berdasarkan aspek yang dapat diamati dan dinilai, seperti ketepatan konsep Pancasila, kedalaman analisis, relevansi solusi, kelengkapan informasi, fungsi website dan barcode, kualitas media presentasi, serta kontribusi anggota kelompok. Penggunaan rubrik dengan skala 1–4, mulai dari perlu bimbingan hingga sangat baik, membantu guru menentukan tingkat pencapaian siswa secara lebih objektif dan konsisten. Meskipun empat pertanyaan pada LKPD setiap kelompok berbeda, indikator umum tetap dapat digunakan dengan menyesuaikan penilaian terhadap tuntutan masing-masing pertanyaan.
+           </div>
+            <div class="paragraf-analisis">
+            3. Kemudahan penggunaan instrumen
+           </div>
+            <div class="paragraf-analisis">
+            Instrumen disajikan dalam tabel dan lembar kerja yang terstruktur berdasarkan tahapan pembelajaran, sehingga guru dapat melakukan penilaian secara bertahap tanpa harus menunggu proyek selesai. Daftar nama siswa dan kelompok memudahkan pencatatan nilai, sedangkan lembar penilaian individu membantu guru mengidentifikasi kontribusi setiap anggota. Format Excel juga mendukung pengolahan nilai dan rekapitulasi hasil penilaian. Namun, guru tetap perlu mencatat bukti pengamatan selama proses pembelajaran agar penilaian tidak hanya didasarkan pada produk akhir atau performa kelompok.
+           </div>
+            <div class="paragraf-analisis">
+            4. Pemanfaatan hasil asesmen untuk memperbaiki proses pembelajaran
+           </div>
+            <div class="paragraf-analisis">
+            Hasil asesmen diagnostik Wayground digunakan untuk mengidentifikasi pengetahuan awal dan menentukan kebutuhan pendampingan siswa. Hasil penilaian pemilihan kasus dan analisis LKPD menjadi dasar untuk memberikan umpan balik mengenai ketepatan konsep, kedalaman analisis, penggunaan bukti, dan penyusunan solusi berdasarkan nilai Pancasila. Sementara itu, hasil penilaian produk dan presentasi digunakan untuk memperbaiki kemampuan literasi digital, kreativitas, komunikasi, dan kerja sama siswa. Siswa yang mengalami kesulitan dapat diberikan bimbingan, contoh analisis, atau pertanyaan pemantik, sedangkan siswa yang telah mencapai indikator dapat diberikan tantangan analisis lanjutan. Dengan demikian, hasil asesmen tidak hanya berfungsi untuk menentukan nilai, tetapi juga menjadi dasar refleksi guru dalam memperbaiki strategi pembelajaran pada pertemuan berikutnya.
+            Instrumen penilaian ini mendukung pembelajaran yang berorientasi pada proses dan hasil. Efektivitasnya bergantung pada konsistensi penggunaan rubrik, kesesuaian indikator dengan tujuan pembelajaran, serta pemanfaatan hasil penilaian untuk memberikan umpan balik dan tindak lanjut yang sesuai dengan kebutuhan siswa.
+           </div>
+          <strong>       Analisis Kesesuaian Instrumen Penilaian Bab 2: Demokrasi Berdasarkan UUD NRI Tahun 1945</strong>
+                    <div class="paragraf-analisis">
+            Instrumen penilaian pada Bab 2, khususnya materi Periodesasi Konstitusi Indonesia, dirancang untuk mengukur pemahaman awal, penguasaan materi, dan kemampuan siswa dalam menyajikan informasi melalui pohon literasi dan mind map. Kesesuaiannya ditinjau dari empat aspek berikut.
+           </div>
+           <div class="paragraf-analisis">
+            1. Kesesuaian instrumen dengan tujuan pembelajaran
+           </div>
+           <div class="paragraf-analisis">
+            Instrumen penilaian telah disesuaikan dengan tujuan pembelajaran, yaitu agar siswa mampu mengidentifikasi urutan periodesasi konstitusi Indonesia, menjelaskan masa berlaku setiap konstitusi, memahami peristiwa penting dalam perubahan konstitusi, serta menganalisis faktor yang melatarbelakangi perubahan tersebut.
+            Asesmen diagnostik kognitif digunakan untuk mengetahui pengetahuan awal siswa. Selanjutnya, pohon literasi membantu mengukur penguasaan materi melalui 20 soal yang dikerjakan setiap siswa dari bank soal berisi 38 soal. Sementara itu, tugas mind map digunakan untuk menilai kemampuan siswa dalam menyusun informasi secara sistematis dan menghubungkan konsep-konsep yang telah dipelajari. Bagi siswa kelompok mahir, tugas analisis tambahan digunakan untuk mengukur kemampuan berpikir kritis dan menjelaskan hubungan sebab-akibat.
+           </div>
+           <div class="paragraf-analisis">
+            2. Keterukuran indikator penilaian
+           </div>
+           <div class="paragraf-analisis">     
+            Indikator penilaian dirumuskan berdasarkan aspek yang dapat diamati dan diukur. Pada pohon literasi, penguasaan materi diukur melalui ketepatan jawaban, dengan bobot 5 poin untuk setiap soal dan skor maksimal 100. Pada tugas mind map, indikator meliputi ketepatan urutan periode konstitusi, ketepatan tanggal dan peristiwa penting, keterkaitan antarkonsep, kejelasan penyajian, serta kerapian visual. Untuk kelompok mahir, penilaian juga mencakup analisis sebab-akibat dan penyusunan simpulan.
+            Penggunaan indikator dan rubrik membantu guru memberikan penilaian secara lebih objektif, konsisten, dan sesuai dengan tingkat kesiapan belajar siswa.
+           </div>
+           <div class="paragraf-analisis">
+            3. Kemudahan penggunaan instrumen
+           </div>
+           <div class="paragraf-analisis">
+            Instrumen disusun dalam format Excel yang dilengkapi bank soal, pembagian nomor soal untuk setiap siswa, lembar rekap nilai, dan rubrik penilaian mind map. Format ini memudahkan guru mengelola penilaian terhadap 38 siswa, mencatat hasil pengerjaan, serta mendokumentasikan perkembangan belajar siswa.
+            Penerapan Teaching at the Right Level (TaRL) juga memudahkan guru menyesuaikan tingkat bantuan dan kompleksitas tugas. Kelompok 1 memperoleh bantuan berupa kerangka mind map dan kartu informasi, kelompok 2 menyusun hubungan antarkonsep secara mandiri, sedangkan kelompok 3 mengembangkan analisis yang lebih mendalam. Dengan demikian, seluruh siswa menghasilkan produk yang sama, tetapi memperoleh dukungan sesuai kebutuhan belajarnya.
+           </div>
+           <div class="paragraf-analisis">
+            4. Pemanfaatan hasil asesmen untuk memperbaiki pembelajaran
+           </div>
+           <div class="paragraf-analisis">
+            Hasil asesmen digunakan sebagai dasar pengambilan keputusan dalam proses pembelajaran, bukan sekadar untuk memberikan nilai. Hasil asesmen diagnostik dianalisis untuk mengidentifikasi siswa yang masih kesulitan memahami urutan konstitusi, tanggal penting, dan hubungan antarkonstitusi. Berdasarkan temuan tersebut, guru memetakan kebutuhan belajar dan menyesuaikan bantuan maupun tingkat kesulitan tugas.
+            Hasil pohon literasi digunakan untuk mengetahui penguasaan materi dan menentukan konsep yang perlu dijelaskan kembali. Sementara itu, hasil penilaian mind map dan tugas analisis digunakan untuk mengevaluasi kemampuan siswa dalam mengorganisasi informasi dan menghubungkan konsep. Apabila ditemukan kesalahan yang berulang, guru dapat memberikan penguatan materi, latihan tambahan, diskusi terbimbing, atau umpan balik individual. Hasil asesmen berikutnya kemudian digunakan untuk melihat perkembangan siswa dan meninjau efektivitas strategi pembelajaran yang diterapkan.
+            Instrumen penilaian Bab 2 telah mengintegrasikan asesmen diagnostik, penilaian proses melalui pohon literasi dan penilaian produk melalui mind map. Instrumen ini mendukung pembelajaran berdiferensiasi berbasis TaRL karena hasil asesmen digunakan untuk menyesuaikan bantuan, memperbaiki pemahaman konsep, dan meningkatkan kualitas proses pembelajaran. Namun, efektivitasnya tetap perlu ditinjau berdasarkan hasil nyata siswa dan tindak lanjut yang dilakukan guru.
+           </div>
+        </div>
+
+        <div class="analysis-box">
+          <h3>📎 File Instrumen</h3>
+
+          <div class="file-card">
+            <div class="file-card-icon">📝</div>
+
+            <h4>Instrumen dan Rubrik Penilaian</h4>
+
+            <p>
+              Masukkan dokumen instrumen penilaian, kisi-kisi, rubrik, lembar
+              observasi, atau dokumen asesmen lainnya.
+            </p>
+
+             <button class="file-name"><h4>
+              <a href="assets/instrumen/Instrumen_Penilaian_PPL_Menjiwai_Pancasila.xlsx">Instrumen Penilaian Bab I</a></h4></button>
+                <button class="file-name"><h4>
+              <a href="assets/instrumen/Instrumen_Penilaian_Sumatif_Bab1_Menjiwai_Pancasila.xlsx">Instrumen Penilaian Sumatif</a></h4></button>
+                <button class="file-name"><h4>
+              <a href="assets/instrumen/Instrumen_Pohon_Literasi_dan_Mindmap_Bab2.xlsx">Instrumen Penilaian Bab II</a></h4></button>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+         REFLEKSI
+    ===================================================== -->
+
+      <section class="page" id="refleksi">
+        <div class="section-header">
+          <div class="section-label">Refleksi Praktik</div>
+
+          <h1>Refleksi Pengalaman PPL</h1>
+
+          <p>
+            Refleksi terhadap pelaksanaan pembelajaran, kendala, respons peserta
+            didik, umpan balik Guru Pamong, dan rencana perbaikan.
+          </p>
+        </div>
+
+        <div class="analysis-box">
+          <h3>✅ Aktivitas yang Berhasil</h3>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <h4>Kegiatan Pembukaan</h4>
+
+              <p>
+                Mengecek kesiapan siswa, doa, kehadiran, silent of moment,
+                tujuan pembelajaran, dan apersepsi menggunakan PPT interaktif.
+              </p>
+            </div>
+
+            <div class="timeline-item">
+              <h4>Kegiatan Inti</h4>
+
+              <p>
+                Penyampaian materi melalui tanya jawab, pembentukan kelompok,
+                analisis kasus, perencanaan proyek, Google Sites, poster, dan
+                persiapan presentasi.
+              </p>
+            </div>
+
+            <div class="timeline-item">
+              <h4>Kegiatan Penutup</h4>
+
+              <p>
+                Refleksi, tanya jawab, penyimpulan bersama, penyampaian materi
+                berikutnya, dan penutupan.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-2">
+          <div class="analysis-box">
+            <h3>⏰ Kendala Waktu</h3>
+
+            <ul>
+              <li>Keterlambatan siswa memasuki kelas.</li>
+
+              <li>Pengecekan kehadiran yang membutuhkan waktu.</li>
+
+              <li>Pengambilan dan pemasangan LCD.</li>
+
+              <li>Waktu pembelajaran terpotong oleh jadwal MBG.</li>
+            </ul>
+          </div>
+
+          <div class="analysis-box">
+            <h3>👥 Kendala Manajemen Kelas</h3>
+
+            <ul>
+              <li>Suasana kelas terkadang ramai.</li>
+
+              <li>Siswa menyoraki teman ketika terjadi kesalahan.</li>
+
+              <li>Beberapa siswa sulit diarahkan.</li>
+
+              <li>Terdapat siswa yang sering keluar masuk kelas.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="analysis-box">
+          <h3>😊 Respons dan Keterlibatan Peserta Didik</h3>
+
+          <!-- EDIT / KEMBANGKAN DI SINI -->
+
+          <p>
+            Sebagian besar peserta didik menunjukkan kesiapan, antusiasme, dan
+            keterlibatan dalam pembelajaran. Penggunaan emoji perasaan membantu
+            guru memperoleh gambaran awal mengenai kondisi emosional peserta
+            didik. Kegiatan proyek juga memberikan ruang bagi peserta didik
+            untuk bekerja sama, bertukar pikiran, menganalisis kasus, dan
+            menghasilkan produk.
+          </p>
+
+          <br />
+
+          <p>
+            Terdapat pula peserta didik yang membutuhkan pendampingan lebih
+            lanjut dalam memahami instruksi dan menentukan kasus. Guru
+            memberikan bimbingan secara langsung serta membantu kelompok
+            tersebut menentukan kasus dan memahami langkah pengerjaan proyek.
+          </p>
+        </div>
+
+        <div class="analysis-box">
+          <h3>💬 Umpan Balik Guru Pamong</h3>
+
+          <div class="quote">
+            Guru Pamong memberikan arahan agar waktu pembelajaran dapat
+            dimaksimalkan sejak awal karena adanya keterbatasan waktu akibat
+            jadwal MBG. Guru juga menekankan pentingnya penggunaan PPT dalam
+            penyampaian materi dan tetap melaksanakan kegiatan refleksi pada
+            akhir pembelajaran.
+          </div>
+
+          <p>
+            Guru Pamong memberikan ruang kepada praktikan untuk mengatur gaya
+            belajar dan strategi pembelajaran sesuai kondisi peserta didik
+            dengan tetap memperhatikan ketercapaian pembelajaran serta inovasi
+            pembelajaran.
+          </p>
+        </div>
+
+        <div class="analysis-box">
+          <h3>🔄 Rencana Perbaikan Rancangan Pembelajaran</h3>
+
+          <ol>
+            <li>
+              Menyesuaikan alokasi waktu dengan kondisi nyata dan jadwal
+              sekolah.
+            </li>
+
+            <li>
+              Memadatkan kegiatan pembukaan tanpa menghilangkan komponen
+              penting.
+            </li>
+
+            <li>Memperjelas aturan dan instruksi proyek.</li>
+
+            <li>
+              Menyediakan contoh kasus sebagai alternatif apabila peserta didik
+              mengalami kebingungan.
+            </li>
+
+            <li>Meningkatkan strategi manajemen kelas.</li>
+
+            <li>Mempertahankan penggunaan PPT interaktif.</li>
+
+            <li>Mempertahankan kegiatan refleksi dan asesmen formatif.</li>
+
+            <li>
+              Menyiapkan alternatif kegiatan apabila waktu pembelajaran
+              mengalami perubahan.
+            </li>
+          </ol>
+        </div>
+
+        <div class="analysis-box">
+          <h3>🌱 Refleksi Profesional</h3>
+
+          <!-- EDIT DI SINI -->
+
+          <p>
+            Pengalaman praktik mengajar memberikan pemahaman bahwa keberhasilan
+            pembelajaran tidak hanya ditentukan oleh kualitas rancangan yang
+            dibuat, tetapi juga oleh kemampuan guru dalam menyesuaikan rancangan
+            dengan kondisi nyata di kelas. Pengalaman menghadapi keterbatasan
+            waktu, keberagaman karakter peserta didik, dan dinamika kelas
+            menjadi bagian penting dalam proses pengembangan kompetensi saya
+            sebagai calon guru.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- =========================================================
+     FOOTER
+========================================================= -->
+
+    <footer>
+      <p>© 2026 E-Portfolio Praktik Pengalaman Lapangan • SMAN 2 Mataram</p>
+
+      <p>Pendidikan Pancasila • PPG Calon Guru • Hafadzatun Adzmi,S.Pd</p>
+    </footer>
+
+    <script>
+      /* =========================================================
+   PAGE NAVIGATION
+========================================================= */
+
+      const navLinks = document.querySelectorAll(".nav-link");
+      const pages = document.querySelectorAll(".page");
+
+      function showPage(pageId) {
+        pages.forEach((page) => {
+          page.classList.remove("active");
+        });
+
+        const selectedPage = document.getElementById(pageId);
+
+        if (selectedPage) {
+          selectedPage.classList.add("active");
+        }
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+
+          if (link.dataset.page === pageId) {
+            link.classList.add("active");
+          }
+        });
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+
+        // Menutup sidebar pada mobile
+        document.getElementById("sidebar").classList.remove("open");
+      }
+
+      navLinks.forEach((link) => {
+        link.addEventListener("click", function (event) {
+          event.preventDefault();
+
+          const pageId = this.dataset.page;
+
+          showPage(pageId);
+        });
+      });
+
+      /* =========================================================
+   MOBILE SIDEBAR
+========================================================= */
+
+      function toggleSidebar() {
+        document.getElementById("sidebar").classList.toggle("open");
+      }
+
+      /* =========================================================
+   KEYBOARD NAVIGATION
+========================================================= */
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          document.getElementById("sidebar").classList.remove("open");
+        }
+      });
+
+      /* =========================================================
+   PRINT
+========================================================= */
+
+      window.addEventListener("beforeprint", function () {
+        pages.forEach((page) => {
+          page.style.display = "block";
+        });
+      });
+
+      window.addEventListener("afterprint", function () {
+        pages.forEach((page) => {
+          page.style.display = "";
+        });
+
+        const activePage = document.querySelector(".page.active");
+
+        if (activePage) {
+          activePage.style.display = "block";
+        }
+      });
+    </script>
+  </body>
+</html>
